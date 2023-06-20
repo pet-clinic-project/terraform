@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 module "vpc" {
-  source                        = "../../../modules/vpc"
+  source                        = "../../modules/vpc"
   name                          = "eks-vpc"
   region                        = "us-west-2"
   project                       = "EKS Demo"
