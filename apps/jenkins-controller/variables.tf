@@ -1,7 +1,7 @@
 variable "tags" {
   default     = {}
   type        = map(string)
-  description = "Extra tags to attach to the Jenkins-Agent resources"
+  description = "Extra tags to attach to the Jenkins-Controller resources"
 }
 
 variable "owner" {
@@ -26,25 +26,25 @@ variable "region" {
 
 variable "ami_id" {
   type = string
-  description = "Jenkins agent AMI ID"
+  description = "Jenkins controller AMI ID"
 }
 
 variable "instance_type" {
   type = string
-  description = "EC2 instance type for Jenkins agent"
+  description = "EC2 instance type for Jenkins controller"
 }
 
 variable "key_name" {
   type = string
-  description = "Key for Jenkins agent"
+  description = "Key for Jenkins controller"
 }
 
 variable "vpc_id" {
   type = string
-  description = "VPC id for Jenkins agent"
+  description = "VPC id for Jenkins controller"
 }
 
 variable "subnet_id" {
   type    = string
-  description = "Subnet id for Jenkins agent"
+  description = "Subnet id for Jenkins controller"
 }

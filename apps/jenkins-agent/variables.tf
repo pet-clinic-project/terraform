@@ -46,5 +46,5 @@ variable "vpc_id" {
 
 variable "subnet_id" {
   type    = string
-  description = "Subnet id for Jenkins agent"
+  description = "subnet id for Jenkins agent"
 }

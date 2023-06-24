@@ -21,6 +21,18 @@ resource "aws_security_group" "jenkins_agent_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags = merge(
+    {
+    Name        = "jenkins-agent-sg",
+    Environment = var.environment,
+    Owner       = var.owner,
+    CostCenter  = var.cost_center,
+    Application = "jenkins_agent"
+      },
+    var.tags
+  )
+
 }
 
 resource "aws_instance" "jenkins_agent" {
@@ -31,9 +43,14 @@ resource "aws_instance" "jenkins_agent" {
   associate_public_ip_address = true
   key_name                    = var.key_name
 
-  tags = {
-    Name        = "jenkins_agent"
-    Environment = "dev"
-    Project     = "petclinic"
-  }
+  tags = merge(
+    {
+      Name        = "jenkins_agent",
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "jenkins_agent"
+    },
+    var.tags
+  )
 }
