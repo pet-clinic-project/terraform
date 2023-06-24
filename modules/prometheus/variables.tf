@@ -1,7 +1,7 @@
 variable "tags" {
   default     = {}
   type        = map(string)
-  description = "Extra tags to attach to the Nexus resources"
+  description = "Extra tags to attach to the Prometheus resources"
 }
 
 variable "owner" {
@@ -26,30 +26,30 @@ variable "region" {
 
 variable "ami_id" {
   type = string
-  description = "Nexus AMI ID"
+  description = "prometheus AMI ID"
 }
 
 variable "instance_type" {
   type = string
-  description = "EC2 instance type for nexus"
+  description = "EC2 instance type for prometheus"
 }
 
 variable "instance_count" {
   type    = number
-  description = "EC2 instance count for nexus"
+  description = "EC2 instance count for prometheus"
 }
 
 variable "key_name" {
   type = string
-  description = "Key for nexus"
+  description = "Key for prometheus"
 }
 
 variable "vpc_id" {
   type = string
-  description = "VPC id for nexus"
+  description = "VPC id for prometheus"
 }
 
 variable "subnet_ids" {
   type    = list(string)
-  description = "Subnet id for nexus"
+  description = "Subnet ids for prometheus"
 }

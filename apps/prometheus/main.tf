@@ -2,8 +2,8 @@ provider "aws" {
   region = var.region
 }
 
-module "nexus" {
-    source = "../../modules/nexus"
+module "jenkins-controller" {
+    source = "../../modules/prometheus"
     region        = var.region
     owner         = var.owner
     environment   = var.environment
