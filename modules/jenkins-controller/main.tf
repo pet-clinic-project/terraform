@@ -36,9 +36,10 @@ resource "aws_security_group" "jenkins_controller_sg" {
 }
 
 resource "aws_instance" "jenkins_controller" {
+  count                       = var.instance_count
   ami                         = var.ami_id
   instance_type               = var.instance_type
-  subnet_id                   = var.subnet_id
+  subnet_id                   = element(var.subnet_ids, count.index % length(var.subnet_ids))
   vpc_security_group_ids      = [aws_security_group.jenkins_controller_sg.id]
   associate_public_ip_address = true
   key_name                    = var.key_name
@@ -46,7 +47,7 @@ resource "aws_instance" "jenkins_controller" {
   tags = merge(
   {
     Name        = "jenkins_controller",
-    Environment = "dev",
+    Environment = var.environment,
     Owner       = var.owner,
     CostCenter  = var.cost_center,
     Application = "jenkins_controller"

@@ -36,9 +36,10 @@ resource "aws_security_group" "jenkins_agent_sg" {
 }
 
 resource "aws_instance" "jenkins_agent" {
+  count                       = var.instance_count
   ami                         = var.ami_id
   instance_type               = var.instance_type
-  subnet_id                   = var.subnet_id
+  subnet_id                   = element(var.subnet_ids, count.index % length(var.subnet_ids))
   vpc_security_group_ids      = [aws_security_group.jenkins_agent_sg.id]
   associate_public_ip_address = true
   key_name                    = var.key_name

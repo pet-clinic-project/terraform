@@ -34,6 +34,11 @@ variable "instance_type" {
   description = "EC2 instance type for Jenkins agent"
 }
 
+variable "instance_count" {
+  type    = number
+  description = "EC2 instance count for Jenkins controller"
+}
+
 variable "key_name" {
   type = string
   description = "Key for Jenkins agent"
@@ -44,7 +49,7 @@ variable "vpc_id" {
   description = "VPC id for Jenkins agent"
 }
 
-variable "subnet_id" {
-  type    = string
+variable "subnet_ids" {
+  type    = list(string)
   description = "Subnet id for Jenkins agent"
 }
