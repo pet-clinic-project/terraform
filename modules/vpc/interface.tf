@@ -12,9 +12,14 @@ variable "name" {
   description = "Name of the VPC"
 }
 
-variable "project" {
+variable "owner" {
   type        = string
-  description = "Name of project this VPC is meant to house"
+  description = "Name of owner this VPC is meant to house"
+}
+
+variable "cost_center" {
+  type        = string
+  description = "Name of cost-center for this VPC"
 }
 
 variable "environment" {

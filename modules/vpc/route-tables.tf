@@ -4,8 +4,10 @@ resource "aws_route_table" "public" {
   tags = merge(
     {
       Name        = "PublicRouteTable",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_public_route_table"
     },
     var.tags
   )
@@ -30,8 +32,10 @@ resource "aws_route_table" "app" {
   tags = merge(
     {
       Name        = "AppRouteTable",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_app_route_table"
     },
     var.tags
   )
@@ -56,8 +60,10 @@ resource "aws_route_table" "db" {
   tags = merge(
     {
       Name        = "DbRouteTable",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_db_route_table"
     },
     var.tags
   )
@@ -81,8 +87,10 @@ resource "aws_route_table" "management" {
   tags = merge(
     {
       Name        = "ManagementRouteTable",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_management_route_table"
     },
     var.tags
   )

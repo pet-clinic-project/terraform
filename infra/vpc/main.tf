@@ -10,7 +10,8 @@ module "vpc" {
   source  = "../../modules/vpc"
   name                          = var.name
   region                        = var.region
-  project                       = var.project
+  owner                         = var.owner
+  cost_center                   = var.cost_center
   environment                   = var.environment
   vpc_cidr_block                = var.vpc_cidr_block
   public_subnet_cidr_blocks     = var.public_subnet_cidr_blocks

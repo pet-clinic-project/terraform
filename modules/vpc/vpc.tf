@@ -7,8 +7,10 @@ resource "aws_vpc" "main" {
   tags = merge(
     {
       Name        = var.name,
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "pet_clinic_vpc"
     },
     var.tags
   )

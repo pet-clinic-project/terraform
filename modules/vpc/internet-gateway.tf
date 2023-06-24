@@ -4,8 +4,10 @@ resource "aws_internet_gateway" "main" {
   tags = merge(
     {
       Name        = "InternetGateway",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_internet_gateway"
     },
     var.tags
   )

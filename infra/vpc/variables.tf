@@ -8,9 +8,14 @@ variable "region" {
   description = "Region of the VPC"
 }
 
-variable "project" {
-  type    = string
-  description = "Name of project this VPC is meant to house"
+variable "owner" {
+  type        = string
+  description = "Name of owner this VPC is meant to house"
+}
+
+variable "cost_center" {
+  type        = string
+  description = "Name of cost-center for this VPC"
 }
 
 variable "environment" {

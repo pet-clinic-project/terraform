@@ -8,8 +8,10 @@ resource "aws_subnet" "public" {
   tags = merge(
     {
       Name        = "PublicSubnet",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_public_subnet"
     },
     var.tags
   )
@@ -24,8 +26,10 @@ resource "aws_subnet" "app" {
   tags = merge(
     {
       Name        = "AppSubnet",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_app_subnet"
     },
     var.tags
   )
@@ -40,8 +44,10 @@ resource "aws_subnet" "db" {
   tags = merge(
     {
       Name        = "DbSubnet",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_db_subnet"
     },
     var.tags
   )
@@ -56,8 +62,10 @@ resource "aws_subnet" "management" {
   tags = merge(
     {
       Name        = "ManagementSubnet",
-      Project     = var.project,
-      Environment = var.environment
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = "vpc_management_subnet"
     },
     var.tags
   )
