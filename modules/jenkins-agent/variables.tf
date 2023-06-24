@@ -1,24 +1,24 @@
 variable "ami_id" {
   type = string
-  description = "Jenkins controller AMI ID"
-  default     = "ami-0065c2afde789d6c4"
+  description = "Jenkins Agent AMI ID"
+  default     = "ami-0e8ffa060937e44c7"
 }
 
 variable "instance_type" {
   type = string
-  description = "EC2 instance type for Jenkins controller"
-  default     = "t2.micro" 
+  description = "EC2 instance type for Jenkins agent"
+  default     = "t2.medium"
 }
 
 variable "key_name" {
   type = string
-  description = "Key for Jenkins controller"
+  description = "Key for Jenkins agent"
   default     = "aswin-key"
 }
 
 variable "vpc_id" {
   type = string
-  description = "Key for Jenkins controller"
+  description = "Key for Jenkins agent"
   default     = "vpc-0a5ca4a92c2e10163"
 }
 
