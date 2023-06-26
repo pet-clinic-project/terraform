@@ -1,8 +1,8 @@
 region        = "us-west-2"
 owner         = "Techiescamp"
-environment   = "prod"
+environment   = "stage"
 cost_center   = "project-pet-clinic"
-ami_id        = "ami-0e8ffa060937e44c7"
+ami_id        = "ami-0f4e949f4afa4e5a9"
 instance_count= 1
 instance_type = "t2.medium"
 key_name      = "techiescamp"
