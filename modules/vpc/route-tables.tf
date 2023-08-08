@@ -3,11 +3,11 @@ resource "aws_route_table" "public" {
 
   tags = merge(
     {
-      Name        = "PublicRouteTable",
+      Name        = "${var.environment}-${var.application}-public-route-table",
       Environment = var.environment,
       Owner       = var.owner,
       CostCenter  = var.cost_center,
-      Application = "vpc_public_route_table"
+      Application = var.application
     },
     var.tags
   )
@@ -15,15 +15,8 @@ resource "aws_route_table" "public" {
 
 resource "aws_route" "public" {
   route_table_id         = aws_route_table.public.id
-  destination_cidr_block = "0.0.0.0/0"
+  destination_cidr_block = var.destination_cidr_block
   gateway_id             = aws_internet_gateway.main.id
-}
-
-
-resource "aws_route_table_association" "public" {
-  count          = length(var.public_subnet_cidr_blocks)
-  subnet_id      = aws_subnet.public[count.index].id
-  route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table" "app" {
@@ -31,11 +24,11 @@ resource "aws_route_table" "app" {
 
   tags = merge(
     {
-      Name        = "AppRouteTable",
+      Name        = "${var.environment}-${var.application}-app-route-table",
       Environment = var.environment,
       Owner       = var.owner,
       CostCenter  = var.cost_center,
-      Application = "vpc_app_route_table"
+      Application = var.application
     },
     var.tags
   )
@@ -43,14 +36,8 @@ resource "aws_route_table" "app" {
 
 resource "aws_route" "app" {
   route_table_id         = aws_route_table.app.id
-  destination_cidr_block = "0.0.0.0/0"
+  destination_cidr_block = var.destination_cidr_block
   gateway_id             = aws_internet_gateway.main.id
-}
-
-resource "aws_route_table_association" "app" {
-  count          = length(var.app_subnet_cidr_blocks)
-  subnet_id      = aws_subnet.app[count.index].id
-  route_table_id = aws_route_table.app.id
 }
 
 #
@@ -59,11 +46,11 @@ resource "aws_route_table" "db" {
 
   tags = merge(
     {
-      Name        = "DbRouteTable",
+      Name        = "${var.environment}-${var.application}-db-route-table",
       Environment = var.environment,
       Owner       = var.owner,
       CostCenter  = var.cost_center,
-      Application = "vpc_db_route_table"
+      Application = var.application
     },
     var.tags
   )
@@ -71,14 +58,8 @@ resource "aws_route_table" "db" {
 
 resource "aws_route" "db" {
   route_table_id         = aws_route_table.db.id
-  destination_cidr_block = "0.0.0.0/0"
+  destination_cidr_block = var.destination_cidr_block
   gateway_id             = aws_internet_gateway.main.id
-}
-
-resource "aws_route_table_association" "db" {
-  count          = length(var.db_subnet_cidr_blocks)
-  subnet_id      = aws_subnet.db[count.index].id
-  route_table_id = aws_route_table.db.id
 }
 
 resource "aws_route_table" "management" {
@@ -86,11 +67,11 @@ resource "aws_route_table" "management" {
 
   tags = merge(
     {
-      Name        = "ManagementRouteTable",
+      Name        = "${var.environment}-${var.application}-management-route-table",
       Environment = var.environment,
       Owner       = var.owner,
       CostCenter  = var.cost_center,
-      Application = "vpc_management_route_table"
+      Application = var.application
     },
     var.tags
   )
@@ -98,12 +79,6 @@ resource "aws_route_table" "management" {
 
 resource "aws_route" "management" {
   route_table_id         = aws_route_table.management.id
-  destination_cidr_block = "0.0.0.0/0"
+  destination_cidr_block = var.destination_cidr_block
   gateway_id             = aws_internet_gateway.main.id
-}
-
-resource "aws_route_table_association" "management" {
-  count          = length(var.management_subnet_cidr_blocks)
-  subnet_id      = aws_subnet.management[count.index].id
-  route_table_id = aws_route_table.management.id
 }
