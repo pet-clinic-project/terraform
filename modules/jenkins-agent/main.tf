@@ -1,5 +1,5 @@
 resource "aws_security_group" "jenkins_agent_sg" {
-  name        = "${var.environment}-${var.application}"
+  name        = "${var.environment}-${var.application}-agent-sg"
   description = "Security Group for Jenkins Agent"
   vpc_id      = var.vpc_id
 

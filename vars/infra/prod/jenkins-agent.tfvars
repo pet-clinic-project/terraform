@@ -11,15 +11,15 @@ associate_public_ip_address = true
 
 # CIDR Ingress Variables
 create_ingress_cidr         = true
-ingress_cidr_from_port      = [22, 80, 8080]
-ingress_cidr_to_port        = [22, 80, 8080]
-ingress_cidr_protocol       = ["tcp", "tcp", "tcp"]
-ingress_cidr_block          = ["10.10.0.0/16", "10.10.0.0/16", "10.10.0.0/16"]
+ingress_cidr_from_port      = [22, 8080]
+ingress_cidr_to_port        = [22, 8080]
+ingress_cidr_protocol       = ["tcp", "tcp"]
+ingress_cidr_block          = ["0.0.0.0/0", "0.0.0.0/0"]
 
 # Security Group Ingress Variables
 create_ingress_sg           = false
-ingress_sg_from_port        = [80]
-ingress_sg_to_port          = [80]
+ingress_sg_from_port        = [50000]
+ingress_sg_to_port          = [50000]
 ingress_sg_protocol         = ["tcp"]
 
 # CIDR Egress Variables
