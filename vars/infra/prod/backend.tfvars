@@ -5,6 +5,6 @@ attribute_name  = "LockID"
 attribute_type  = "S"
 
 owner           = "techiescamp"
-environment     = "dev"
+environment     = "prod"
 cost_center     = "techiescamp-commerce"
 application     = "state-lock"
