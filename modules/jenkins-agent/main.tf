@@ -49,7 +49,7 @@ resource "aws_security_group" "jenkins_agent_sg" {
 
   tags = merge(
     {
-      Name        = "${var.environment}-${var.application}-jenkins-agent-sg"
+      Name        = "${var.environment}-${var.application}-agent-sg"
       Environment = var.environment,
       Owner       = var.owner,
       CostCenter  = var.cost_center,
@@ -71,7 +71,7 @@ resource "aws_instance" "jenkins_agent" {
 
   tags = merge(
     {
-      Name        = "${var.environment}-${var.application}-jenkins-agent"
+      Name        = "${var.environment}-${var.application}-agent"
       Environment = var.environment,
       Owner       = var.owner,
       CostCenter  = var.cost_center,
