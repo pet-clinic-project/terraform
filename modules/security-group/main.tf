@@ -1,6 +1,6 @@
-resource "aws_security_group" "jenkins_agent_sg" {
-  name        = "${var.environment}-${var.application}-agent-sg"
-  description = "Security Group for Jenkins Agent"
+resource "aws_security_group" "instance_sg" {
+  name        = "${var.environment}-${var.application}"
+  description = "Security Group for Instance"
   vpc_id      = var.vpc_id
 
   # Ingress rules for CIDR blocks
@@ -49,34 +49,13 @@ resource "aws_security_group" "jenkins_agent_sg" {
 
   tags = merge(
     {
-      Name        = "${var.environment}-${var.application}-agent-sg"
-      Environment = var.environment,
-      Owner       = var.owner,
-      CostCenter  = var.cost_center,
+      Name        = "${var.environment}-${var.application}"
+      Environment = var.environment
+      Owner       = var.owner
+      CostCenter  = var.cost_center
       Application = var.application
     },
     var.tags
   )
 
-}
-
-resource "aws_instance" "jenkins_agent" {
-  count                       = var.instance_count
-  ami                         = var.ami_id
-  instance_type               = var.instance_type
-  subnet_id                   = element(var.subnet_ids, count.index % length(var.subnet_ids))
-  vpc_security_group_ids      = [aws_security_group.jenkins_agent_sg.id]
-  associate_public_ip_address = var.associate_public_ip_address
-  key_name                    = var.key_name
-
-  tags = merge(
-    {
-      Name        = "${var.environment}-${var.application}-agent"
-      Environment = var.environment,
-      Owner       = var.owner,
-      CostCenter  = var.cost_center,
-      Application = var.application
-    },
-    var.tags
-  )
 }

@@ -1,7 +1,7 @@
 variable "tags" {
   default     = {}
   type        = map(string)
-  description = "Extra tags to attach to the Jenkins-Agent resources"
+  description = "Extra tags to attach"
 }
 
 variable "region" {
@@ -16,27 +16,27 @@ variable "ami_id" {
 
 variable "instance_type" {
   type = string
-  description = "EC2 instance type for Jenkins agent"
+  description = "EC2 instance type"
 }
 
 variable "instance_count" {
   type    = number
-  description = "EC2 instance count for Jenkins agent"
+  description = "EC2 instance count"
 }
 
 variable "key_name" {
   type = string
-  description = "Key for Jenkins agent"
+  description = "Key for the instance"
 }
 
 variable "vpc_id" {
   type = string
-  description = "VPC id for Jenkins agent"
+  description = "VPC id for the instance"
 }
 
 variable "subnet_ids" {
   type    = list(string)
-  description = "Subnet id for Jenkins agent"
+  description = "Subnet id for the instance"
 }
 
 variable "associate_public_ip_address" {

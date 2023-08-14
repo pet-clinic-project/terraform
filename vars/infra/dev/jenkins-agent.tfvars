@@ -39,4 +39,4 @@ egress_sg_protocol          = ["-1"]
 owner                       = "techiescamp"
 environment                 = "dev"
 cost_center                 = "techiescamp-commerce"
-application                 = "jenkins"
+application                 = "jenkins-agent"
