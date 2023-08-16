@@ -1,13 +1,18 @@
 region                      = "us-west-2"
 
+#IAM Policy
+iam_policy_json_file        = "jenkins-agent.json"
+
 #Instance Variables
 ami_id                      = "ami-0e8ffa060937e44c7"
 instance_count              = 1
 instance_type               = "t2.medium"
 key_name                    = "techiescamp"
-vpc_id                      = "vpc-0a5ca4a92c2e10163"
-subnet_ids                  = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
+vpc_id                      = "vpc-062e91b98392ca9a2"
+subnet_ids                  = ["subnet-034b5b81e1ee5e653", "subnet-0bfbbe8efe880be15", "subnet-059ad803aa3c5d9c5"]
 associate_public_ip_address = true
+attach_instance_profile     = true
+attach_eip                  = false
 
 # CIDR Ingress Variables
 create_ingress_cidr         = true
@@ -39,4 +44,4 @@ egress_sg_protocol          = ["-1"]
 owner                       = "techiescamp"
 environment                 = "stage"
 cost_center                 = "techiescamp-commerce"
-application                 = "jenkins"
+application                 = "jenkins-agent"
