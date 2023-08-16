@@ -12,6 +12,7 @@ module "prometheus" {
   subnet_ids                  = var.subnet_ids
   associate_public_ip_address = var.associate_public_ip_address
   security_group_ids          = module.security-group.security_group_ids
+  attach_eip                  = var.attach_eip
 
   environment                 = var.environment
   owner                       = var.owner

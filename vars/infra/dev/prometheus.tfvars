@@ -8,6 +8,7 @@ key_name                    = "techiescamp"
 vpc_id                      = "vpc-0a5ca4a92c2e10163"
 subnet_ids                  = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
 associate_public_ip_address = true
+attach_eip                  = true
 
 # CIDR Ingress Variables
 create_ingress_cidr         = true
