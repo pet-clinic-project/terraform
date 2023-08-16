@@ -23,3 +23,8 @@ variable "application" {
   type        = string
   description = "Name of the application"
 }
+
+variable "json_file_name" {
+  type        = string
+  description = "Name of the json file"
+}

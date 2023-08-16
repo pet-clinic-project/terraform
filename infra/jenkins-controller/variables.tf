@@ -44,6 +44,11 @@ variable "associate_public_ip_address" {
   description = "Enable or disable public ip address"
 }
 
+variable "attach_instance_profile" {
+  type        = bool
+  description = "Attach instance profile or not"
+}
+
 variable "ingress_cidr_from_port" {
   type        = list(number)
   description = "List of starting ports for cidr ingress rules"
@@ -164,4 +169,9 @@ variable "cost_center" {
 variable "application" {
   type        = string
   description = "Name of the application related to the resource"
+}
+
+variable "json_file_name" {
+  type        = string
+  description = "Name of the json file"
 }
