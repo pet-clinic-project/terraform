@@ -13,6 +13,11 @@ variable "instance_type" {
   description = "Instance type of the ec2 instance"
 }
 
+variable "iam_role" {
+  description = "IAM role for the instance"
+  type        = string
+}
+
 variable "key_name" {
   type        = string
   description = "Key name of the ec2 instance"

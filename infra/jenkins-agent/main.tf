@@ -2,6 +2,14 @@ provider "aws" {
   region                      = var.region
 }
 
+module "iam-policy" {
+  source                      = "../../modules/iam-policy"
+  owner                       = var.owner
+  environment                 = var.environment
+  cost_center                 = var.cost_center
+  application                 = var.application
+}
+
 module "jenkins-agent" {
   source                      = "../../modules/ec2"
   region                      = var.region
@@ -11,6 +19,7 @@ module "jenkins-agent" {
   key_name                    = var.key_name
   subnet_ids                  = var.subnet_ids
   associate_public_ip_address = var.associate_public_ip_address
+  iam_role                    = module.iam-policy.iam_role
   security_group_ids          = module.security-group.security_group_ids
 
   environment                 = var.environment
