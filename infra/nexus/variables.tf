@@ -165,3 +165,8 @@ variable "application" {
   type        = string
   description = "Name of the application related to the resource"
 }
+
+variable "attach_eip" {
+  type        = bool
+  description = "Attach eip or not"
+}
