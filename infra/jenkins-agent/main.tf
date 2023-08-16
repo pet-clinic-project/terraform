@@ -19,6 +19,7 @@ module "jenkins-agent" {
   key_name                    = var.key_name
   subnet_ids                  = var.subnet_ids
   associate_public_ip_address = var.associate_public_ip_address
+  attach_instance_profile     = var.attach_instance_profile
   iam_role                    = module.iam-policy.iam_role
   security_group_ids          = module.security-group.security_group_ids
 

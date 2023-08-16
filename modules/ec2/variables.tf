@@ -68,3 +68,8 @@ variable "associate_public_ip_address" {
   type        = bool
   description = "Enable or disable public ip address"
 }
+
+variable "attach_instance_profile" {
+  type        = bool
+  description = "Attach instance profile or not"
+}

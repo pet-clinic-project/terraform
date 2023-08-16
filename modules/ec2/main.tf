@@ -1,4 +1,5 @@
 resource "aws_iam_instance_profile" "instance_profile" {
+  count = var.attach_instance_profile ? 1 : 0
   name = "${var.environment}-${var.application}-instance_profile"
 
   role = var.iam_role
@@ -10,7 +11,7 @@ resource "aws_instance" "ec2_instance" {
   key_name      = var.key_name
   count         = var.instance_count
 
-  iam_instance_profile = "${var.environment}-${var.application}-instance_profile"
+  iam_instance_profile = var.attach_instance_profile ? aws_iam_instance_profile.instance_profile[0].name : null
 
   associate_public_ip_address = var.associate_public_ip_address
 
@@ -28,4 +29,5 @@ resource "aws_instance" "ec2_instance" {
     },
     var.tags
   )
+
 }
