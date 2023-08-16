@@ -4,7 +4,7 @@ provider "aws" {
 
 module "iam-policy" {
   source                      = "../../modules/iam-policy"
-  json_file_name              = var.json_file_name
+  iam_policy_json_file        = var.iam_policy_json_file
   owner                       = var.owner
   environment                 = var.environment
   cost_center                 = var.cost_center

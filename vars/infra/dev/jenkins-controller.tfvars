@@ -1,7 +1,7 @@
 region                      = "us-west-2"
 
 #IAM Policy
-json_file_name              = "jenkins-controller.json"
+iam_policy_json_file        = "jenkins-controller.json"
 
 #Instance Variables
 ami_id                      = "ami-0065c2afde789d6c4"

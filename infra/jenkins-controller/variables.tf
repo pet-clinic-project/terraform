@@ -171,7 +171,7 @@ variable "application" {
   description = "Name of the application related to the resource"
 }
 
-variable "json_file_name" {
+variable "iam_policy_json_file" {
   type        = string
   description = "Name of the json file"
 }
