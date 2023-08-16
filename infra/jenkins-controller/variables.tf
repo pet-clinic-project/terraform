@@ -175,3 +175,8 @@ variable "iam_policy_json_file" {
   type        = string
   description = "Name of the json file"
 }
+
+variable "attach_eip" {
+  type        = bool
+  description = "Attach eip or not"
+}

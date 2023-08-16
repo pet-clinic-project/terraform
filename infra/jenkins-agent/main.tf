@@ -23,6 +23,7 @@ module "jenkins-agent" {
   attach_instance_profile     = var.attach_instance_profile
   iam_role                    = module.iam-policy.iam_role
   security_group_ids          = module.security-group.security_group_ids
+  attach_eip                  = var.attach_eip
 
   environment                 = var.environment
   owner                       = var.owner

@@ -14,6 +14,7 @@ variable "instance_type" {
 }
 
 variable "iam_role" {
+  default     = null
   description = "IAM role for the instance"
   type        = string
 }
@@ -70,6 +71,12 @@ variable "associate_public_ip_address" {
 }
 
 variable "attach_instance_profile" {
+  default     = false
   type        = bool
   description = "Attach instance profile or not"
+}
+
+variable "attach_eip" {
+  type        = bool
+  description = "Attach eip or not"
 }

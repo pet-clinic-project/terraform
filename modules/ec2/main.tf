@@ -30,3 +30,9 @@ resource "aws_instance" "ec2_instance" {
     var.tags
   )
 }
+
+resource "aws_eip" "example" {
+  count = var.attach_eip ? var.instance_count : 0
+
+  instance = element(aws_instance.ec2_instance.*.id, count.index)
+}
