@@ -31,7 +31,7 @@ resource "aws_instance" "ec2_instance" {
   )
 }
 
-resource "aws_eip" "example" {
+resource "aws_eip" "instance" {
   count = var.attach_eip ? var.instance_count : 0
 
   instance = element(aws_instance.ec2_instance.*.id, count.index)
