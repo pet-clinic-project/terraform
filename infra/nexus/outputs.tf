@@ -13,3 +13,8 @@ output "instance_public_ip" {
   value       = module.nexus.instance_public_ip
 }
 
+output "eip_instance_ids" {
+  description = "List of instance IDs associated with EIPs"
+  value       = module.nexus.eip_instance_ids
+}
+
