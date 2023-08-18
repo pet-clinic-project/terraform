@@ -65,16 +65,19 @@ variable "ingress_cidr_block" {
 }
 
 variable "ingress_sg_from_port" {
+  default     =[50000]
   type        = list(number)
   description = "List of starting ports for sg ingress rules"
 }
 
 variable "ingress_sg_to_port" {
+  default     =[50000]
   type        = list(number)
   description = "List of ending ports for sg ingress rules"
 }
 
 variable "ingress_sg_protocol" {
+  default     =["tcp"]
   type        = list(string)
   description = "List of protocols for sg ingress rules"
 }
@@ -106,16 +109,19 @@ variable "egress_cidr_block" {
 }
 
 variable "egress_sg_from_port" {
+  default     =[0]
   type        = list(number)
   description = "List of starting ports for sg egress rules"
 }
 
 variable "egress_sg_to_port" {
+  default     =[0]
   type        = list(number)
   description = "List of ending ports for sg egress rules"
 }
 
 variable "egress_sg_protocol" {
+  default     =["-1"]
   type        = list(any)
   description = "List of protocols for sg egress rules"
 }

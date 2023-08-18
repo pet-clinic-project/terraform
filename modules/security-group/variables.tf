@@ -71,7 +71,6 @@ variable "ingress_sg_protocol" {
 
 variable "ingress_security_group_ids" {
   type        = list(string)
-  default     = [ "sg-0fe4363da3994c100" ]
   description = "List of Security Group ids for sg ingress rules of the EC2 security group."
 }
 
@@ -112,7 +111,6 @@ variable "egress_sg_protocol" {
 
 variable "egress_security_group_ids" {
   type        = list(string)
-  default     = [ "sg-0fe4363da3994c100" ]
   description = "List of Security Group ids for sg egress rules of the EC2 security group."
 }
 
