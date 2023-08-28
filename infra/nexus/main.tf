@@ -13,6 +13,7 @@ module "nexus" {
   associate_public_ip_address = var.associate_public_ip_address
   security_group_ids          = module.security-group.security_group_ids
   attach_eip                  = var.attach_eip
+  storage_size                = var.storage_size
 
   environment                 = var.environment
   owner                       = var.owner

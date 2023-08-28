@@ -80,3 +80,8 @@ variable "attach_eip" {
   type        = bool
   description = "Attach eip or not"
 }
+
+variable "storage_size" {
+  type        = number
+  description = "Storage size of the instance"
+}
