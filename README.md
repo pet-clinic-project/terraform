@@ -61,12 +61,12 @@ terraform plan -var-file=../../vars/infra/dev/jenkins-controller.tfvars
 3. To apply the changes
 
 ```
-terraform plan -var-file=../../vars/infra/dev/jenkins-controller.tfvars
+terraform apply -var-file=../../vars/infra/dev/jenkins-controller.tfvars
 ```
 4. To destroy the resources created using the code
 
 ```
-terraform plan -var-file=../../vars/infra/dev/jenkins-controller.tfvars
+terraform destroy -var-file=../../vars/infra/dev/jenkins-controller.tfvars
 ```
 
 #### Jenkins Agent

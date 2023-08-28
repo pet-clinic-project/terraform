@@ -3,43 +3,7 @@
     "Statement": [
         {
             "Effect": "Allow",
-            "Sid": "CloudWatchAccess",
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:DescribeLogStreams"
-            ],
-            "Resource": [
-                "arn:aws:logs:*:*:*"
-            ]
-        },
-        {
-            "Action": [
-                "s3:PutObject",
-                "s3:GetObject",
-                "s3:ListBucket"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:s3:::*/*",
-            "Sid": "S3Access"
-        },
-        {
-            "Sid": "SecretsManagerActions",
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:DescribeSecret"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "ParameterStoreActions",
-            "Effect": "Allow",
-            "Action": [
-                "ssm:GetParameter",
-                "ssm:GetParameters"
-            ],
+            "Action": "*",
             "Resource": "*"
         }
     ]

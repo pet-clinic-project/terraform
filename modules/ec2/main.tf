@@ -19,6 +19,10 @@ resource "aws_instance" "ec2_instance" {
 
   subnet_id                   = element(var.subnet_ids, count.index % length(var.subnet_ids))
 
+  root_block_device {
+    volume_size = 30
+  }
+
   tags = merge(
     {
       Name        = "${var.environment}-${var.application}-instance"
