@@ -13,6 +13,7 @@ subnet_ids                  = ["subnet-034b5b81e1ee5e653", "subnet-0bfbbe8efe880
 associate_public_ip_address = true
 attach_instance_profile     = true
 attach_eip                  = false
+storage_size                = 10
 
 # CIDR Ingress Variables
 create_ingress_cidr         = true

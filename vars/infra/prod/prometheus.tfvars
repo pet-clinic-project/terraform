@@ -7,7 +7,9 @@ instance_type               = "t2.micro"
 key_name                    = "techiescamp"
 vpc_id                      = "vpc-062e91b98392ca9a2"
 subnet_ids                  = ["subnet-034b5b81e1ee5e653", "subnet-0bfbbe8efe880be15", "subnet-059ad803aa3c5d9c5"]
+associate_public_ip_address = true
 attach_eip                  = true
+storage_size                = 10
 
 # CIDR Ingress Variables
 create_ingress_cidr         = true
