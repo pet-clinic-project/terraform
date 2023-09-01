@@ -169,4 +169,28 @@ terraform apply -var-file=../../vars/infra/dev/backend.tfvars
 terraform destroy -var-file=../../vars/infra/dev/backend.tfvars
 ```
 
+#### ECR
+
+cd into the `infra/ecr` directory and run the following commands:
+
+1. Init Terraform in the directory `infra/backend'
+
+```
+terraform init
+```
+2. To preview the changes in code
+
+```
+terraform plan -var-file=../../vars/infra/dev/ecr.tfvars
+```
+3. To apply the changes
+
+```
+terraform apply -var-file=../../vars/infra/dev/ecr.tfvars
+```
+4. To destroy the resources created using the code
+
+```
+terraform destroy -var-file=../../vars/infra/dev/ecr.tfvars
+```
 
