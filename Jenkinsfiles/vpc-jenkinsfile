@@ -89,11 +89,7 @@ pipeline {
         }
 
         stage('Terraform Apply') {
-            when {
-                expression {
-                    return (env.BRANCH_NAME == 'develop')
-                }
-            }      
+                  
             steps {
                 script {
                     terraformApply(
@@ -107,7 +103,7 @@ pipeline {
         stage('Terraform Destroy') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'develop')
+                    return (env.BRANCH_NAME == 'main')
                 }
             }
             steps {
