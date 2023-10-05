@@ -109,7 +109,11 @@ pipeline {
         }
 
         stage('Terraform Destroy') {
-            
+            when {
+                expression {
+                    return (env.BRANCH_NAME == 'main' && params.action == 'destroy')
+                }
+            }
             steps {
                 script {
                     terraformDestroy(
