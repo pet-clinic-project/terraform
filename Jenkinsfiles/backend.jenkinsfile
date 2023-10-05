@@ -24,15 +24,6 @@ pipeline {
    }
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout([
-                    $class: 'GitSCM',
-                    
-                ])
-            }     
-        }
-
         stage('Terraform Init') {
             steps {
                 script {
