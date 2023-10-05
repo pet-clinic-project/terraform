@@ -22,9 +22,8 @@ pipeline {
     }
 
    parameters {
-        choice(name: 'action', defaultValue: 'apply', description: 'Terraform Action (apply, destroy, etc.)')
+        string(name: 'action', defaultValue: ACTION_PARAM, description: 'Terraform Action (apply, destroy, etc.)')
     }
-
 
     stages {
         stage('Checkout') {
