@@ -99,7 +99,7 @@ create_secrets_manager_endpoint = true
 create_cloudwatch_logs_endpoint = true
 
 #tags
-owner                         = "techiescamp"
+owner                         = "techiescam"
 environment                   = "dev"
-cost_center                   = "techiescamp-commerce"
+cost_center                   = "techiescamp-commerc"
 application                   = "vpc"
