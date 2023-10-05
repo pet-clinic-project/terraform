@@ -95,7 +95,7 @@ pipeline {
         stage('Terraform Apply') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'main' && params.action == 'apply')
+                    return (env.BRANCH_NAME == 'develop' && params.action == 'apply')
                 }
             }      
             steps {
@@ -111,7 +111,7 @@ pipeline {
         stage('Terraform Destroy') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'main' && params.action == 'destroy')
+                    return (env.BRANCH_NAME == 'develop' && params.action == 'destroy')
                 }
             }
             steps {
