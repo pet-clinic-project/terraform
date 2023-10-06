@@ -89,7 +89,11 @@ pipeline {
         }
 
         stage('Terraform Apply') {
-                  
+            when {
+                expression {
+                    return (env.BRANCH_NAME == 'main')
+                }
+            }      
             steps {
                 script {
                     terraformApply(
