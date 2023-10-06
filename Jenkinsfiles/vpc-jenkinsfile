@@ -8,7 +8,7 @@ def TF_PLAN_FILE = 'tfplan.binary'
 def TF_PLAN_JSON_FILE = 'tfplan.json'
 def TFVARS_FILE_PATH = '../../vars/infra/dev/vpc.tfvars'
 def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_*'
-def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
+def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'
 
 pipeline {
     agent {
@@ -91,9 +91,9 @@ pipeline {
         stage('Terraform Apply') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'main')
+                    params.ACTION == 'apply'
                 }
-            }      
+            }
             steps {
                 script {
                     terraformApply(
@@ -105,7 +105,11 @@ pipeline {
         }
 
         stage('Terraform Destroy') {
-            
+            when {
+                expression {
+                    params.ACTION == 'destroy'
+                }
+            }
             steps {
                 script {
                     terraformDestroy(
