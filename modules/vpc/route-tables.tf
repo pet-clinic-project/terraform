@@ -101,5 +101,5 @@ resource "aws_route_table" "platform" {
 resource "aws_route" "platform" {
   route_table_id         = aws_route_table.platform.id
   destination_cidr_block = var.destination_cidr_block
-  nat_gateway_id         = aws_internet_gateway.main.id
+  gateway_id             = aws_internet_gateway.main.id
 }
