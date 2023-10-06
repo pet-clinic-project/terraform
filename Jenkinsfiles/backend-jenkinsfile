@@ -1,7 +1,7 @@
 @Library('jenkins-shared-library@develop') _
 
 def ECR_IMAGE = '814200988517.dkr.ecr.us-west-2.amazonaws.com/infra-images:terraform-agent-1.0.5'
-def PROJECT_DIR = 'infra/vpc'
+def PROJECT_DIR = 'infra/backend'
 def TF_STATE_FILE = "backend.tfstate"
 def TF_VARS_FILE = 'backend.tfvars'
 def TF_PLAN_FILE = 'tfplan.binary'
