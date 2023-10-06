@@ -1,14 +1,13 @@
 @Library('jenkins-shared-library@develop') _
 
-def ECR_IMAGE = 'public.ecr.aws/m1n8x9y9/techiescamp-repo:latest'
+def ECR_IMAGE = '814200988517.dkr.ecr.us-west-2.amazonaws.com/infra-images:terraform-agent-1.0.5'
 def ACTION_PARAM = 'apply'
-def GIT_URL = 'https://github.com/pet-clinic-project/terraform.git'
 def PROJECT_DIR = 'infra/ecr'
 def STATE_FILE = "ecr.tfstate"
 def TF_VARS_FILE = 'ecr.tfvars'
 def PLAN_FILE = 'tfplan.binary'
 def PLAN_JSON_FILE = 'tfplan.json'
-def TFVARS_FILE_PATH = '../../vars/infra/dev/ecr.tfvars'
+def TFVARS_FILE_PATH = '../../vars/infra/stage/ecr.tfvars'
 def CUSTOM_POLICY = 'CUSTOM_AWS_*'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
 
@@ -22,17 +21,13 @@ pipeline {
     }
 
     parameters {
-        string(name: 'action', defaultValue: ACTION_PARAM, description: 'Terraform Action (apply, destroy, etc.)')
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: '')
     }
 
     stages {
         stage('Checkout') {
             steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/develop']],
-                    userRemoteConfigs: [[url: GIT_URL]]
-                ])
+                checkout scm
             }
         }
 
@@ -95,9 +90,9 @@ pipeline {
         stage('Terraform Apply') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'main' && params.action == 'apply')
+                    params.ACTION == 'apply'
                 }
-            }      
+            }     
             steps {
                 script {
                     terraformApply(
@@ -111,7 +106,7 @@ pipeline {
         stage('Terraform Destroy') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'main' && params.action == 'destroy')
+                    params.ACTION == 'destroy'
                 }
             }
             steps {
