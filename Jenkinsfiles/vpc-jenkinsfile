@@ -1,13 +1,13 @@
 @Library('jenkins-shared-library@develop') _
 
-def ECR_IMAGE = 'public.ecr.aws/m1n8x9y9/techiescamp-repo:latest'
+def ECR_IMAGE = '814200988517.dkr.ecr.us-west-2.amazonaws.com/infra-images:terraform-agent-1.0.5'
 def PROJECT_DIR = 'infra/vpc'
-def STATE_FILE = "vpc.tfstate"
+def TF_STATE_FILE = "vpc.tfstate"
 def TF_VARS_FILE = 'vpc.tfvars'
-def PLAN_FILE = 'tfplan.binary'
-def PLAN_JSON_FILE = 'tfplan.json'
+def TF_PLAN_FILE = 'tfplan.binary'
+def TF_PLAN_JSON_FILE = 'tfplan.json'
 def TFVARS_FILE_PATH = '../../vars/infra/dev/vpc.tfvars'
-def CUSTOM_POLICY = 'CUSTOM_AWS_*'
+def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_*'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
 
 pipeline {
@@ -35,7 +35,7 @@ pipeline {
                 script {
                     terraformInit(
                         projectDirectory: PROJECT_DIR,
-                        tfstateFile: STATE_FILE,
+                        tfstateFile: TF_STATE_FILE,
                         tfvarsFile: TF_VARS_FILE
                     )
                 }
@@ -58,8 +58,8 @@ pipeline {
                     terraformPlan(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
-                        planFile: PLAN_FILE,
-                        redirectPlanFile: PLAN_JSON_FILE
+                        planFile: TF_PLAN_FILE,
+                        redirectPlanFile: TF_PLAN_JSON_FILE
                     )
                 }
             }
@@ -81,8 +81,8 @@ pipeline {
                 script {
                     checkovScan(
                         projectDirectory: PROJECT_DIR,
-                        planFileJson: PLAN_JSON_FILE,
-                        customPolicy: CUSTOM_POLICY
+                        planFileJson: TF_PLAN_JSON_FILE,
+                        customPolicy: CHECKOV_CUSTOM_POLICY
                     )
                 }
             }
