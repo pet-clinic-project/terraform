@@ -2,7 +2,7 @@ provider "aws" {
   region                      = var.region
 }
 
-module "ec2" {
+module "nexus" {
   source                      = "../../modules/ec2"
   region                      = var.region
   ami_id                      = var.ami_id
