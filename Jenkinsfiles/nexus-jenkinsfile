@@ -76,7 +76,17 @@ pipeline {
             }
         }
 
-       
+        stage('Checkov Scan') {
+            steps {
+                script {
+                    checkovScan(
+                        projectDirectory: PROJECT_DIR,
+                        planFileJson: TF_PLAN_JSON_FILE,
+                        customPolicy: CHECKOV_CUSTOM_POLICY
+                    )
+                }
+            }
+        }
         stage('Terraform Apply') {
             when {
                 expression {
