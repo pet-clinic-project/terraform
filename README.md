@@ -194,3 +194,27 @@ terraform apply -var-file=../../vars/infra/dev/ecr.tfvars
 terraform destroy -var-file=../../vars/infra/dev/ecr.tfvars
 ```
 
+#### Consul
+
+cd into the `apps/consul` directory and run the following commands:
+
+1. Init Terraform in the directory `infra/nexus'
+
+```
+terraform init
+```
+2. To preview the changes in code
+
+```
+terraform plan -var-file=../../vars/apps/dev/consul.tfvars
+```
+3. To apply the changes
+
+```
+terraform apply -var-file=../../vars/apps/dev/consul.tfvars
+```
+4. To destroy the resources created using the code
+
+```
+terraform destroy -var-file=../../vars/apps/dev/consul.tfvars
+```

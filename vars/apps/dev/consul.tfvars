@@ -1,10 +1,10 @@
 region                      = "us-west-2"
 
 #Instance Variables
-ami_id                      = "ami-0144782b90f0e779b"
+ami_id                      = "ami-093011e6fdfa27a87"
 instance_count              = 1
 instance_type               = "t2.medium"
-key_name                    = "techiescamp"
+key_name                    = "aswin-key"
 vpc_id                      = "vpc-062e91b98392ca9a2"
 subnet_ids                  = ["subnet-034b5b81e1ee5e653", "subnet-0bfbbe8efe880be15", "subnet-059ad803aa3c5d9c5"]
 associate_public_ip_address = true
@@ -13,8 +13,8 @@ storage_size                = 10
 
 # CIDR Ingress Variables
 create_ingress_cidr         = true
-ingress_cidr_from_port      = [22, 8081]
-ingress_cidr_to_port        = [22, 8081]
+ingress_cidr_from_port      = [22, 8500]
+ingress_cidr_to_port        = [22, 8500]
 ingress_cidr_protocol       = ["tcp", "tcp"]
 ingress_cidr_block          = ["0.0.0.0/0", "0.0.0.0/0"]
 
@@ -30,6 +30,6 @@ create_egress_sg            = false
 
 #tags
 owner                       = "techiescamp"
-environment                 = "stage"
+environment                 = "dev"
 cost_center                 = "techiescamp-commerce"
-application                 = "nexus"
+application                 = "consul"

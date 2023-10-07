@@ -1,7 +1,7 @@
 region                      = "us-west-2"
 
 #Instance Variables
-ami_id                      = "ami-0c5f4b62055d5d62c"
+ami_id                      = "ami-0a00c651c14f524f4"
 instance_count              = 1
 instance_type               = "t2.micro"
 key_name                    = "techiescamp"
