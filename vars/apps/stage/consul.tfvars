@@ -30,6 +30,6 @@ create_egress_sg            = false
 
 #tags
 owner                       = "techiescamp"
-environment                 = "dev"
+environment                 = "stage"
 cost_center                 = "techiescamp-commerce"
 application                 = "consul"
