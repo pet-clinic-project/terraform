@@ -1,7 +1,7 @@
 region                      = "us-west-2"
 
 #Instance Variables
-ami_id                      = "ami-093011e6fdfa27a87"
+ami_id                      = "ami-0b364888c0e3426f8"
 instance_count              = 1
 instance_type               = "t2.medium"
 key_name                    = "aswin-key"
