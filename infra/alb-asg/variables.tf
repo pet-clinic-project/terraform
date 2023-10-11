@@ -466,3 +466,8 @@ variable "dns_domain_name" {
   type        = string
   description = "Domain name of the Route 53"
 }
+
+variable "iam_policy_json_file" {
+  type        = string
+  description = "Name of the json file"
+}

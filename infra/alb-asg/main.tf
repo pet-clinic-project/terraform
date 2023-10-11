@@ -3,15 +3,16 @@ provider "aws" {
 }
 
 module "iam-policy" {
-  source      = "../../../modules/iam-policy"
-  owner       = var.owner
-  environment = var.environment
-  cost_center = var.cost_center
-  application = var.application
+  source               = "../../modules/iam-policy"
+  iam_policy_json_file = var.iam_policy_json_file
+  owner                = var.owner
+  environment          = var.environment
+  cost_center          = var.cost_center
+  application          = var.application
 }
 
 module "alb-sg" {
-  source      = "../../../modules/security-group"
+  source      = "../../modules/security-group"
   region      = var.region
   tags        = var.tags
   name        = "${var.environment}-${var.application}"
@@ -47,7 +48,7 @@ module "alb-sg" {
 }
 
 module "alb" {
-  source                           = "../../../modules/alb"
+  source                           = "../../modules/alb"
   region                           = var.region
   internal                         = var.internal
   loadbalancer_type                = var.loadbalancer_type
@@ -91,7 +92,7 @@ module "alb" {
 }
 
 module "instance-sg" {
-  source      = "../../../modules/security-group"
+  source      = "../../modules/security-group"
   region      = var.region
   tags        = var.tags
   name        = "${var.environment}-${var.application}"
@@ -127,7 +128,7 @@ module "instance-sg" {
 }
 
 module "asg" {
-  source               = "../../../modules/asg"
+  source               = "../../modules/asg"
   ami_id               = var.ami_id
   instance_type        = var.instance_type
   key_name             = var.key_name
@@ -157,7 +158,7 @@ module "asg" {
 }
 
 module "acm" {
-  source = "../../../modules/acm"
+  source = "../../modules/acm"
   region = var.region
 
   domain_name                                 = var.domain_name

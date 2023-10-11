@@ -1,5 +1,8 @@
 region = "us-west-2"
 
+#IAM Policy
+iam_policy_json_file        = "alb-asg.json"
+
 # alb
 internal          = false
 loadbalancer_type = "application"
