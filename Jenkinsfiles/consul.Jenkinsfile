@@ -7,7 +7,7 @@ def TF_VARS_FILE = 'apps/stage/consul.tfvars'
 def TF_PLAN_FILE = 'tfplan.binary'
 def TF_PLAN_JSON_FILE = 'tfplan.json'
 def TFVARS_FILE_PATH = '../../vars/apps/stage/consul.tfvars'
-def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_001'
+def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_111'
 def NOTIFICATION_EMAIL = 'aswin@crunchops.com'
 
 pipeline {
