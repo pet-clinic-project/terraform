@@ -15,6 +15,7 @@ variable "region" {
 }
 
 variable "environment" {
+  type = string
   description = "The environment name for the resources."
 }
 
