@@ -124,7 +124,7 @@ acm_dns_record_ttl                          = 300
 
 #tags
 owner       = "techiescamp"
-environment = "stage"
+environment = "prod"
 cost_center = "techiescamp-commerce"
 application = "java-app"
 
