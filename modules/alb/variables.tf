@@ -159,6 +159,11 @@ variable "dns_hosted_zone_id" {
   type        = string
 }
 
+variable "name" {
+  type        = string
+  description = "Name of the resource"
+}
+
 variable "owner" {
   type        = string
   description = "Name of owner"
