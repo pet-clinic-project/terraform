@@ -117,7 +117,7 @@ pipeline {
                 script {
                     terraformDestroy(
                         projectDirectory: PROJECT_DIR,
-                        variableFile: TF_VARS_FILE
+                        variableFile: TF_VARS_FILE,
                         amiId: AMI_ID
                     )
                 }
