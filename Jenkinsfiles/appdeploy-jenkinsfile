@@ -61,8 +61,12 @@ pipeline {
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
                         planFile: TF_PLAN_FILE,
-                        redirectPlanFile: TF_PLAN_JSON_FILE,
                         amiId: AMI_ID
+                    )
+                    terraformDeploy.show(
+                        projectDirectory: PROJECT_DIR,
+                        planFile: TF_PLAN_FILE,
+                        redirectPlanFile: TF_PLAN_JSON_FILE
                     )
                 }
             }
