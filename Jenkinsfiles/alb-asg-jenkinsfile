@@ -21,7 +21,7 @@ pipeline {
     }
 
     parameters {
-        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: '')
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select whether to apply or destroy infrastructure.')
         string(name: 'AMI_ID', defaultValue: 'ami-09c28fb4a6cef7012', description: 'AMI ID to use for EC2 Launch Template')
     }
 
