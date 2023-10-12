@@ -60,7 +60,8 @@ pipeline {
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
                         planFile: TF_PLAN_FILE,
-                        redirectPlanFile: TF_PLAN_JSON_FILE
+                        redirectPlanFile: TF_PLAN_JSON_FILE,
+                        amiId: AMI_ID
                     )
                 }
             }
@@ -84,7 +85,6 @@ pipeline {
                         projectDirectory: PROJECT_DIR,
                         planFileJson: TF_PLAN_JSON_FILE,
                         customPolicy: CHECKOV_CUSTOM_POLICY
-                        amiId: AMI_ID
                     )
                 }
             }
