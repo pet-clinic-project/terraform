@@ -84,6 +84,7 @@ module "alb" {
   
   acm_certificate_arn              = module.acm.cert_arn
 
+  name               = "${var.environment}-${var.application}"
   owner              = var.owner
   environment        = var.environment
   cost_center        = var.cost_center
