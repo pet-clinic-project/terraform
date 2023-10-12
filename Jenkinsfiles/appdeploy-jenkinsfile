@@ -51,7 +51,6 @@ pipeline {
                         projectDirectory: PROJECT_DIR
                     )
                     terraformDeploy.terraformValidate(
-                        projectDirectory: PROJECT_DIR
                     )
                 }
             }
