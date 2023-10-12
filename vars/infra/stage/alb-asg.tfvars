@@ -90,7 +90,7 @@ dns_hosted_zone_id = "Z044775511DCQ7IHFO1WH"
 
 
 #launch_template
-ami_id        = "ami-09c28fb4a6cef7012"
+#ami_id        = "ami-09c28fb4a6cef7012"
 instance_type = "t2.medium"
 key_name      = "techiescamp"
 vpc_id        = "vpc-0a5ca4a92c2e10163"
