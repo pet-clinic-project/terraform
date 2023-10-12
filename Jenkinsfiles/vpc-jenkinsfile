@@ -21,6 +21,7 @@ pipeline {
 
     parameters {
         choice(name: 'ACTION', choices: ['apply', 'destroy'], description: '')
+        string(name: 'AMI_ID', description: 'AMI ID to use for EC2 Launch Template')
     }
 
     stages {
