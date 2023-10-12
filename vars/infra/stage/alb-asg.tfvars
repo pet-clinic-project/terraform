@@ -90,7 +90,7 @@ dns_hosted_zone_id = "Z044775511DCQ7IHFO1WH"
 
 
 #launch_template
-ami_id        = "ami-06f8c05abb6b29ac0"
+ami_id        = "ami-09c28fb4a6cef7012"
 instance_type = "t2.medium"
 key_name      = "techiescamp"
 vpc_id        = "vpc-0a5ca4a92c2e10163"
@@ -104,9 +104,9 @@ user_data = <<-EOF
                                    EOF
 
 #autoscaling_group
-max_size             = 2
-min_size             = 1
-desired_capacity     = 1
+max_size             = 5
+min_size             = 3
+desired_capacity     = 3
 propagate_at_launch  = true
 instance_warmup_time = 30
 target_value         = 50
