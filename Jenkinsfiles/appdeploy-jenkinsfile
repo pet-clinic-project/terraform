@@ -47,9 +47,11 @@ pipeline {
         stage('Terraform Validate') {
             steps {
                 script {
-                    terraformDeploy.validate()
+                    terraformDeploy.validate(
+                        projectDirectory: PROJECT_DIR
+                    )
                     terraformDeploy.terraformValidate(
-                    projectDirectory: PROJECT_DIR
+                        projectDirectory: PROJECT_DIR
                     )
                 }
             }
