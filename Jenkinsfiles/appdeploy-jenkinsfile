@@ -47,7 +47,6 @@ pipeline {
         stage('Terraform Validate') {
             steps {
                 script {
-                    terraformDeploy.call()
                     terraformDeploy.terraformValidate(
                         projectDirectory: PROJECT_DIR
                     )
@@ -58,7 +57,6 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 script {
-                    terraformDeploy.call()
                     terraformDeploy.terraformPlan(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
@@ -101,7 +99,6 @@ pipeline {
             }
             steps {
                 script {
-                    terraformDeploy.call()
                     terraformDeploy.terraformApply(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
@@ -119,7 +116,6 @@ pipeline {
             }
             steps {
                 script {
-                    terraformDeploy.call()
                     terraformDeploy.terraformDestroy(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
