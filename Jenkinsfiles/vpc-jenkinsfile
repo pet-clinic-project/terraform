@@ -30,17 +30,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Init') {
-            steps {
-                script {
-                    terraformDeploy.init(
-                        projectDirectory: PROJECT_DIR,
-                        tfstateFile: TF_STATE_FILE,
-                        tfvarsFile: TF_VARS_FILE
-                    )
-                }
-            }
-        }
+        
 
         stage('Terraform Validate') {
             steps {
