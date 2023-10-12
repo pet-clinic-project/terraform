@@ -35,6 +35,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
+                    terraformDeploy.call()
                     terraformDeploy.terraformInit(
                         projectDirectory: PROJECT_DIR,
                         tfstateFile: TF_STATE_FILE,
