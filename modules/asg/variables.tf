@@ -69,6 +69,11 @@ variable "propagate_at_launch" {
   type        = bool
 }
 
+variable "name" {
+  type        = string
+  description = "Name of the resource"
+}
+
 variable "owner" {
   type        = string
   description = "Name of owner"
