@@ -62,8 +62,7 @@ pipeline {
                         variableFile: TF_VARS_FILE,
                         planFile: TF_PLAN_FILE,
                         extraVariableMap: [
-                           ami_id: AMI_ID,
-                           instance_type: "t2.medium"
+                           ami_id: AMI_ID
                            // Add more variables as needed
                         ]
                     )
@@ -111,8 +110,7 @@ pipeline {
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
                         extraVariableMap: [
-                           ami_id: AMI_ID,
-                           instance_type: "t2.medium"
+                           ami_id: AMI_ID
                            // Add more variables as needed
                         ]
                     )
@@ -132,8 +130,7 @@ pipeline {
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
                         extraVariableMap: [
-                           ami_id: AMI_ID,
-                           instance_type: "t2.medium"
+                           ami_id: AMI_ID
                            // Add more variables as needed
                         ]
                     )
