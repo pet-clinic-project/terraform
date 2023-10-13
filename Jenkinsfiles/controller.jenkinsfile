@@ -3,12 +3,12 @@
 def ECR_IMAGE = 'public.ecr.aws/m1n8x9y9/techiescamp-repo:latest'
 def ACTION_PARAM = 'apply'
 def GIT_URL = 'https://github.com/pet-clinic-project/terraform.git'
-def PROJECT_DIR = 'infra/jenkins-controller'
+def PROJECT_DIR = 'platform/jenkins-controller'
 def STATE_FILE = "jenkins-controller.tfstate"
-def TF_VARS_FILE = 'infra/stage/jenkins-controller.tfvars'
+def TF_VARS_FILE = 'platform/stage/jenkins-controller.tfvars'
 def PLAN_FILE = 'tfplan.binary'
 def PLAN_JSON_FILE = 'tfplan.json'
-def TFVARS_FILE_PATH = '../../vars/infra/dev/jenkins-controller.tfvars'
+def TFVARS_FILE_PATH = '../../vars/platform/dev/jenkins-controller.tfvars'
 def CUSTOM_POLICY = 'CUSTOM_AWS_*'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
 

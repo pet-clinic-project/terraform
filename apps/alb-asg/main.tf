@@ -15,7 +15,6 @@ module "alb-sg" {
   source      = "../../modules/security-group"
   region      = var.region
   tags        = var.tags
-  name        = "${var.environment}-${var.application}"
   environment = var.environment
   owner       = var.owner
   cost_center = var.cost_center
@@ -95,7 +94,6 @@ module "instance-sg" {
   source      = "../../modules/security-group"
   region      = var.region
   tags        = var.tags
-  name        = "${var.environment}-${var.application}"
   environment = var.environment
   owner       = var.owner
   cost_center = var.cost_center
