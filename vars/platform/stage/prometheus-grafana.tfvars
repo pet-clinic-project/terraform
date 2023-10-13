@@ -33,4 +33,4 @@ create_egress_sg            = false
 owner                       = "techiescamp"
 environment                 = "stage"
 cost_center                 = "techiescamp-commerce"
-application                 = "prometheus"
+application                 = "prometheus-grafana"
