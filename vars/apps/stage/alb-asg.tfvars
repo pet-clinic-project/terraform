@@ -91,7 +91,7 @@ dns_hosted_zone_id = "Z044775511DCQ7IHFO1WH"
 
 #launch_template
 #ami_id        = "ami-06f8c05abb6b29ac0"
-instance_type = "t2.medium"
+#instance_type = "t2.medium"
 key_name      = "techiescamp"
 vpc_id        = "vpc-0a5ca4a92c2e10163"
 asg_subnets   = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
