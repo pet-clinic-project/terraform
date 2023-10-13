@@ -1,15 +1,13 @@
 @Library('jenkins-shared-library@develop') _
 
-def ECR_IMAGE = 'public.ecr.aws/m1n8x9y9/techiescamp-repo:latest'
-def ACTION_PARAM = 'apply'
-def GIT_URL = 'https://github.com/pet-clinic-project/terraform.git'
+def ECR_IMAGE = '814200988517.dkr.ecr.us-west-2.amazonaws.com/infra-images:terraform-agent-1.0.5'
 def PROJECT_DIR = 'platform/jenkins-agent'
 def STATE_FILE = "jenkins-agent.tfstate"
 def TF_VARS_FILE = 'platform/stage/jenkins-agent.tfvars'
 def PLAN_FILE = 'tfplan.binary'
 def PLAN_JSON_FILE = 'tfplan.json'
-def TFVARS_FILE_PATH = '../../vars/platform/dev/jenkins-agent.tfvars'
-def CUSTOM_POLICY = 'CUSTOM_AWS_*'
+def TFVARS_FILE_PATH = '../../vars/platform/stage/jenkins-agent.tfvars'
+def CUSTOM_POLICY = 'CUSTOM_AWS_111'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
 
 pipeline {
@@ -22,26 +20,22 @@ pipeline {
     }
 
     parameters {
-        string(name: 'action', defaultValue: ACTION_PARAM, description: 'Terraform Action (apply, destroy, etc.)')
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select whether to apply or destroy infrastructure.')
     }
 
     stages {
         stage('Checkout') {
             steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/develop']],
-                    userRemoteConfigs: [[url: GIT_URL]]
-                ])
+                checkout scm
             }
         }
 
         stage('Terraform Init') {
             steps {
                 script {
-                    terraformInit(
+                    terraformDeploy.init(
                         projectDirectory: PROJECT_DIR,
-                        tfstateFile: STATE_FILE,
+                        tfstateFile: TF_STATE_FILE,
                         tfvarsFile: TF_VARS_FILE
                     )
                 }
@@ -51,7 +45,9 @@ pipeline {
         stage('Terraform Validate') {
             steps {
                 script {
-                    terraformValidate(projectDirectory: PROJECT_DIR)
+                    terraformDeploy.validate(
+                        projectDirectory: PROJECT_DIR
+                    )
                 }
             }
         }
@@ -59,11 +55,15 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 script {
-                    terraformPlan(
+                    terraformDeploy.plan(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
-                        planFile: PLAN_FILE,
-                        redirectPlanFile: PLAN_JSON_FILE
+                        planFile: TF_PLAN_FILE
+                    )
+                    terraformDeploy.show(
+                        projectDirectory: PROJECT_DIR,
+                        planFile: TF_PLAN_FILE,
+                        redirectPlanFile: TF_PLAN_JSON_FILE
                     )
                 }
             }
@@ -85,8 +85,8 @@ pipeline {
                 script {
                     checkovScan(
                         projectDirectory: PROJECT_DIR,
-                        planFileJson: PLAN_JSON_FILE,
-                        customPolicy: CUSTOM_POLICY
+                        planFileJson: TF_PLAN_JSON_FILE,
+                        customPolicy: CHECKOV_CUSTOM_POLICY
                     )
                 }
             }
@@ -95,12 +95,12 @@ pipeline {
         stage('Terraform Apply') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'main' && params.action == 'apply')
+                    params.ACTION == 'apply'
                 }
-            }      
+            }
             steps {
                 script {
-                    terraformApply(
+                    terraformDeploy.apply(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE
                     )
@@ -111,12 +111,12 @@ pipeline {
         stage('Terraform Destroy') {
             when {
                 expression {
-                    return (env.BRANCH_NAME == 'main' && params.action == 'destroy')
+                    params.ACTION == 'destroy'
                 }
             }
             steps {
                 script {
-                    terraformDestroy(
+                    terraformDeploy.destroy(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE
                     )

@@ -2,25 +2,25 @@
 
 def ECR_IMAGE = '814200988517.dkr.ecr.us-west-2.amazonaws.com/infra-images:terraform-agent-1.0.5'
 def PROJECT_DIR = 'platform/consul'
-def TF_STATE_FILE = "consul.tfstate"
+def STATE_FILE = "consul.tfstate"
 def TF_VARS_FILE = 'platform/stage/consul.tfvars'
-def TF_PLAN_FILE = 'tfplan.binary'
-def TF_PLAN_JSON_FILE = 'tfplan.json'
+def PLAN_FILE = 'tfplan.binary'
+def PLAN_JSON_FILE = 'tfplan.json'
 def TFVARS_FILE_PATH = '../../vars/platform/stage/consul.tfvars'
-def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_111'
-def NOTIFICATION_EMAIL = 'aswin@crunchops.com'
+def CUSTOM_POLICY = 'CUSTOM_AWS_111'
+def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
 
 pipeline {
     agent {
         docker {
             image ECR_IMAGE
-            args '-v /var/run/docker.sock:/var/run/docker.sock --privileged '
+            args '-v /var/run/docker.sock:/var/run/docker.sock --privileged'
             reuseNode true
         }
     }
 
     parameters {
-        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: '')
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select whether to apply or destroy infrastructure.')
     }
 
     stages {
@@ -33,7 +33,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    terraformInit(
+                    terraformDeploy.init(
                         projectDirectory: PROJECT_DIR,
                         tfstateFile: TF_STATE_FILE,
                         tfvarsFile: TF_VARS_FILE
@@ -45,7 +45,7 @@ pipeline {
         stage('Terraform Validate') {
             steps {
                 script {
-                    terraformValidate(
+                    terraformDeploy.validate(
                         projectDirectory: PROJECT_DIR
                     )
                 }
@@ -55,9 +55,13 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 script {
-                    terraformPlan(
+                    terraformDeploy.plan(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
+                        planFile: TF_PLAN_FILE
+                    )
+                    terraformDeploy.show(
+                        projectDirectory: PROJECT_DIR,
                         planFile: TF_PLAN_FILE,
                         redirectPlanFile: TF_PLAN_JSON_FILE
                     )
@@ -87,6 +91,7 @@ pipeline {
                 }
             }
         }
+
         stage('Terraform Apply') {
             when {
                 expression {
@@ -95,7 +100,7 @@ pipeline {
             }
             steps {
                 script {
-                    terraformApply(
+                    terraformDeploy.apply(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE
                     )
@@ -111,7 +116,7 @@ pipeline {
             }
             steps {
                 script {
-                    terraformDestroy(
+                    terraformDeploy.destroy(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE
                     )
