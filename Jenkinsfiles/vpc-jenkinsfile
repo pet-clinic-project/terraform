@@ -20,7 +20,7 @@ pipeline {
     }
 
     parameters {
-        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: '')
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select whether to apply or destroy infrastructure.')
     }
 
     stages {
