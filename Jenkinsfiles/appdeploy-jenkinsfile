@@ -61,8 +61,9 @@ pipeline {
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
                         planFile: TF_PLAN_FILE,
-                        variables: [
+                        extraVariableMap: [
                            ami_id: AMI_ID
+                           // Add more variables as needed
                         ]
                     )
                     terraformDeploy.show(
@@ -108,7 +109,10 @@ pipeline {
                     terraformDeploy.apply(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
-                        amiId: AMI_ID
+                        extraVariableMap: [
+                           ami_id: AMI_ID
+                           // Add more variables as needed
+                        ]
                     )
                 }
             }
@@ -125,7 +129,10 @@ pipeline {
                     terraformDeploy.destroy(
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
-                        amiId: AMI_ID
+                        extraVariableMap: [
+                           ami_id: AMI_ID
+                           // Add more variables as needed
+                        ]
                     )
                 }
             }
