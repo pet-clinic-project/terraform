@@ -2,12 +2,12 @@
 
 def ECR_IMAGE = '814200988517.dkr.ecr.us-west-2.amazonaws.com/infra-images:terraform-agent-1.0.5'
 def PROJECT_DIR = 'platform/consul'
-def STATE_FILE = "consul.tfstate"
+def TF_STATE_FILE = "consul.tfstate"
 def TF_VARS_FILE = 'platform/stage/consul.tfvars'
-def PLAN_FILE = 'tfplan.binary'
-def PLAN_JSON_FILE = 'tfplan.json'
+def TF_PLAN_FILE = 'tfplan.binary'
+def TF_PLAN_JSON_FILE = 'tfplan.json'
 def TFVARS_FILE_PATH = '../../vars/platform/stage/consul.tfvars'
-def CUSTOM_POLICY = 'CUSTOM_AWS_111'
+def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_111'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
 
 pipeline {
