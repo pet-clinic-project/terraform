@@ -61,7 +61,8 @@ pipeline {
                         projectDirectory: PROJECT_DIR,
                         variableFile: TF_VARS_FILE,
                         planFile: TF_PLAN_FILE,
-                        amiId: AMI_ID
+                        key: ami_id,
+                        value: AMI_ID
                     )
                     terraformDeploy.show(
                         projectDirectory: PROJECT_DIR,
