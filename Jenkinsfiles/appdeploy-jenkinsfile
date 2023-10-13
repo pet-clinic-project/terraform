@@ -1,12 +1,12 @@
 @Library('jenkins-shared-library@develop') _
 
 def ECR_IMAGE = '814200988517.dkr.ecr.us-west-2.amazonaws.com/infra-images:terraform-agent-1.0.5'
-def PROJECT_DIR = 'infra/alb-asg'
+def PROJECT_DIR = 'apps/alb-asg'
 def TF_STATE_FILE = "alb-asg.tfstate"
-def TF_VARS_FILE = 'infra/stage/alb-asg.tfvars'
+def TF_VARS_FILE = 'apps/stage/alb-asg.tfvars'
 def TF_PLAN_FILE = 'tfplan.binary'
 def TF_PLAN_JSON_FILE = 'tfplan.json'
-def TFVARS_FILE_PATH = '../../vars/infra/stage/alb-asg.tfvars'
+def TFVARS_FILE_PATH = '../../vars/apps/stage/alb-asg.tfvars'
 def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_111'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'
 
