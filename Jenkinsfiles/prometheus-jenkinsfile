@@ -10,6 +10,7 @@ def TFVARS_FILE_PATH = '../../vars/platform/stage/prometheus-grafana.tfvars'
 def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_111'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'     
 
+
 pipeline {
     agent {
         docker {
