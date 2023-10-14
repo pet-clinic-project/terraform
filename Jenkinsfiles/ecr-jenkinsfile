@@ -7,7 +7,7 @@ def TF_VARS_FILE = 'infra/stage/ecr.tfvars'
 def TF_PLAN_FILE = 'tfplan.binary'
 def TF_PLAN_JSON_FILE = 'tfplan.json'
 def TFVARS_FILE_PATH = '../../vars/infra/stage/ecr.tfvars'
-def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_*'
+def CHECKOV_CUSTOM_POLICY = 'CUSTOM_AWS_111'
 def NOTIFICATION_EMAIL = 'arunsample555@gmail.com'
 
 pipeline {
