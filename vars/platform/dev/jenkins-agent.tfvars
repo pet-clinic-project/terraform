@@ -4,7 +4,7 @@ region                      = "us-west-2"
 iam_policy_json_file        = "jenkins-agent.json"
 
 #Instance Variables
-ami_id                      = "ami-0d48ea67335f22e0b"
+ami_id                      = "ami-02812d0ef061f5b3e"
 instance_count              = 1
 instance_type               = "t2.micro"
 key_name                    = "techiescamp"
