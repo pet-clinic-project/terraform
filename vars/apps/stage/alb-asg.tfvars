@@ -61,7 +61,7 @@ target_type              = "instance"
 load_balancing_algorithm = "round_robin"
 
 # health_check
-health_check_path                = "/login?from=%2F"
+health_check_path                = "/"
 health_check_port                = 8080
 health_check_protocol            = "HTTP"
 health_check_interval            = 30
