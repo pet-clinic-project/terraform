@@ -6,7 +6,7 @@ iam_policy_json_file        = "alb-asg.json"
 # alb
 internal          = false
 loadbalancer_type = "application"
-alb_subnets       = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
+alb_subnets       = ["subnet-0f799bf13fe34b2d1", "subnet-08de0ab5307a90bae", "subnet-0b5107f4694760f2c"]
 
 #alb-sg
 alb_ingress_cidr_from_port = [80, 443]
