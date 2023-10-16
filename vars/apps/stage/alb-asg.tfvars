@@ -93,8 +93,8 @@ dns_hosted_zone_id = "Z044775511DCQ7IHFO1WH"
 #ami_id        = "ami-06f8c05abb6b29ac0"
 instance_type = "t2.medium"
 key_name      = "techiescamp"
-vpc_id        = "vpc-0a5ca4a92c2e10163"
-asg_subnets   = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
+vpc_id        = "vpc-062e91b98392ca9a2"
+asg_subnets   = ["subnet-0f799bf13fe34b2d1", "subnet-08de0ab5307a90bae", "subnet-0b5107f4694760f2c"]
 public_access = true
 
 # user_data
