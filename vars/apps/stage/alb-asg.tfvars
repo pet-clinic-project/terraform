@@ -97,11 +97,12 @@ vpc_id        = "vpc-0a5ca4a92c2e10163"
 asg_subnets   = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
 public_access = true
 
-#user_data
+# user_data
 user_data = <<-EOF
-                                    #!/bin/bash
-                                    bash /home/ubuntu/start.sh
-                                   EOF
+#!/bin/bash
+/home/ubuntu/start.sh
+EOF
+
 
 #autoscaling_group
 max_size             = 5
