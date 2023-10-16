@@ -100,6 +100,7 @@ public_access = true
 # user_data
 user_data = <<-EOF
 #!/bin/bash
+sudo sed -i 's/start_join = ["35.162.64.207"]/start_join = ["44.241.185.22"]/' /etc/consul.d/config.hcl
 /home/ubuntu/start.sh
 EOF
 
