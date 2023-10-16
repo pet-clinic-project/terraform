@@ -1,7 +1,7 @@
 region = "us-west-2"
 
 #IAM Policy
-iam_policy_json_file        = "jenkins-agent.json"
+iam_policy_json_file        = "alb-asg.json"
 
 # alb
 internal          = false
