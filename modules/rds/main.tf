@@ -2,6 +2,8 @@
 resource "aws_security_group" "rds_security_group" {
   name        = "${var.environment}-${var.application}-rds-sg"
   description = "Security group for RDS instance"
+  vpc_id      = "vpc-062e91b98392ca9a2"
+
 
   ingress {
     from_port   = var.from_port
