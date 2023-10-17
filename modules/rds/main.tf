@@ -1,22 +1,21 @@
 # Create a DB security group
 resource "aws_security_group" "rds_security_group" {
   name        = "${var.environment}-${var.application}-rds-sg"
-  description = "Security group for RDS instance"
   vpc_id      = var.vpc_id
-
+  description = "Security group for RDS instance"
 
   ingress {
-    from_port   = var.from_port
-    to_port     = var.to_port
-    protocol    = var.protocol
-    cidr_blocks = var.cidr_block
+    from_port   = var.ingress_from_port
+    to_port     = var.ingress_to_port
+    protocol    = var.ingress_protocol
+    cidr_blocks = var.ingress_cidr_blocks
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = var.egress_from_port
+    to_port     = var.egress_to_port
+    protocol    = var.egress_protocol
+    cidr_blocks = var.egress_cidr_blocks
   }
 
   tags = merge(
@@ -56,14 +55,33 @@ resource "aws_db_instance" "rds_instance" {
   apply_immediately           = var.apply_immediately
 
   tags = merge(
-    {
-      Name        = "${var.environment}-${var.application}-db",
-      Environment = var.environment,
-      Owner       = var.owner,
-      CostCenter  = var.cost_center,
-      Application = var.application,
-    },
-    var.tags
+  {
+    Name        = "${var.environment}-${var.application}-db",
+    Environment = var.environment,
+    Owner       = var.owner,
+    CostCenter  = var.cost_center,
+    Application = var.application,
+  },
+  var.tags
+  )
+}
+
+resource "aws_ssm_parameter" "rds_endpoint" {
+  name        = "/dev/petclinic/rds_endpoint"
+  description = "RDS endpoint for /dev environment"
+  type        = var.type
+  value       = aws_db_instance.rds_instance.endpoint
+  overwrite   = var.overwrite
+
+  tags = merge(
+  {
+    Name        = "${var.environment}-${var.application}-ssm",
+    Environment = var.environment,
+    Owner       = var.owner,
+    CostCenter  = var.cost_center,
+    Application = var.application,
+  },
+  var.tags
   )
 }
 

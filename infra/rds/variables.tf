@@ -15,7 +15,6 @@ variable "region" {
 }
 
 variable "environment" {
-  type        = string
   description = "The environment name for the resources."
 }
 
@@ -29,16 +28,6 @@ variable "application" {
   description = "Name of the application"
 }
 
-variable "vpc_id" {
-  type        = string
-  description = "VPC Id to create the DB security group"
-}
-
-variable "cidr_block" {
-  type        = list(string)
-  description = "CIDR block for RDS security group"
-}
-
 variable "cost_center" {
   type        = string
   description = "Name of cost-center for this RDS"
@@ -46,28 +35,28 @@ variable "cost_center" {
 
 variable "db_username" {
   description = "The username for the RDS database"
-  type        = string
+  type    = string
 }
 
 variable "set_secret_manager_password" {
   description = "To enable master user password or not"
-  type        = bool
-  default     = false
+  type    = bool
+  default = false
 }
 
 variable "db_password" {
   description = "Password for RDS"
-  type        = string
+  type    = string
 }
 
 variable "db_instance_class" {
   description = "The RDS instance class"
-  type        = string
+  type    = string
 }
 
 variable "set_db_password" {
   description = "Condition to check for custom password"
-  type        = string
+  type = string
 }
 
 variable "db_storage_size" {
@@ -120,25 +109,63 @@ variable "db_storage_type" {
   type        = string
 }
 
-variable "from_port" {
+variable "ingress_from_port" {
   description = "The starting port for ingress rules"
   type        = number
 }
 
-variable "to_port" {
+variable "ingress_cidr_blocks" {
+  type    = list(string)
+  description = "CIDR block for RDS security group"
+}
+
+variable "ingress_to_port" {
   description = "The ending port for ingress rules"
   type        = number
 }
 
-variable "protocol" {
+variable "ingress_protocol" {
   description = "The protocol for ingress rules"
   type        = string
 }
+
+variable "egress_from_port" {
+  description = "The starting port for ingress rules"
+  type        = number
+}
+
+variable "egress_cidr_blocks" {
+  type    = list(string)
+  description = "CIDR block for RDS security group"
+}
+
+variable "egress_to_port" {
+  description = "The ending port for egress rules"
+  type        = number
+}
+
+variable "egress_protocol" {
+  description = "The protocol for egress rules"
+  type        = string
+}
+
 
 variable "subnet_ids" {
   description = "The IDs of the subnets"
   type        = list(string)
 }
 
+variable "vpc_id" {
+  description = "Vpc ID in which it needs to create"
+  type        = string
+}
 
+variable "type" {
+  description = "Parameter store type"
+  type        = string
+}
 
+variable "overwrite" {
+  description = "To confirm whether to overwrite or not"
+  type        = bool
+}

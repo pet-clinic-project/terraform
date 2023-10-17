@@ -15,10 +15,14 @@ module "rds" {
   db_password                 = var.db_password
   db_instance_class           = var.db_instance_class
   db_storage_size             = var.db_storage_size
-  from_port                   = var.from_port
-  to_port                     = var.to_port
-  protocol                    = var.protocol
-  cidr_block                  = var.cidr_block
+  ingress_from_port           = var.ingress_from_port
+  ingress_to_port             = var.ingress_to_port
+  ingress_protocol            = var.ingress_protocol
+  ingress_cidr_blocks         = var.ingress_cidr_blocks
+  egress_from_port            = var.egress_from_port
+  egress_to_port              = var.egress_to_port
+  egress_protocol             = var.egress_protocol
+  egress_cidr_blocks          = var.egress_cidr_blocks
   backup_retention_period     = var.backup_retention_period
   multi_az                    = var.multi_az
   delete_automated_backups    = var.delete_automated_backups
@@ -26,12 +30,10 @@ module "rds" {
   publicly_accessible         = var.publicly_accessible
   skip_final_snapshot         = var.skip_final_snapshot
   apply_immediately           = var.apply_immediately
+  type                        = var.type
+  overwrite                   = var.overwrite
   owner                       = var.owner
   cost_center                 = var.cost_center
   environment                 = var.environment
   application                 = var.application
-}
-
-terraform {
-  backend "s3" {}
 }
