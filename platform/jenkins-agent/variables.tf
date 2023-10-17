@@ -10,32 +10,32 @@ variable "region" {
 }
 
 variable "ami_id" {
-  type = string
+  type        = string
   description = "Jenkins agent AMI ID"
 }
 
 variable "instance_type" {
-  type = string
+  type        = string
   description = "EC2 instance type"
 }
 
 variable "instance_count" {
-  type    = number
+  type        = number
   description = "EC2 instance count"
 }
 
 variable "key_name" {
-  type = string
+  type        = string
   description = "Key for the instance"
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "VPC id for the instance"
 }
 
 variable "subnet_ids" {
-  type    = list(string)
+  type        = list(string)
   description = "Subnet id for the instance"
 }
 
@@ -89,7 +89,7 @@ variable "ingress_sg_protocol" {
 
 variable "ingress_security_group_ids" {
   type        = list(string)
-  default     = [ "sg-0fe4363da3994c100" ]
+  default     = ["sg-0fe4363da3994c100"]
   description = "List of Security Group ids for sg ingress rules"
 }
 
@@ -133,7 +133,7 @@ variable "egress_sg_protocol" {
 
 variable "egress_security_group_ids" {
   type        = list(string)
-  default     = [ "sg-0fe4363da3994c100" ]
+  default     = ["sg-0fe4363da3994c100"]
   description = "List of Security Group ids for sg egress rules "
 }
 

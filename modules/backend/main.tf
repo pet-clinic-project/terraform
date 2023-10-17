@@ -18,9 +18,9 @@ resource "aws_s3_bucket" "state_lock_bucket" {
 }
 
 resource "aws_dynamodb_table" "state_lock_table" {
-  name           = "${var.environment}-${var.application}-dynamodb-table"
-  billing_mode   = var.billing_mode
-  hash_key       = var.hash_key
+  name         = "${var.environment}-${var.application}-dynamodb-table"
+  billing_mode = var.billing_mode
+  hash_key     = var.hash_key
 
   attribute {
     name = var.attribute_name

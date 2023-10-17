@@ -33,36 +33,40 @@ variable "cost_center" {
   description = "Name of cost-center for this RDS"
 }
 
+variable "vpc_id" {
+  type        = string
+  description = "VPC Id to create the DB security group"
+}
 
 variable "cidr_block" {
-  type    = list(string)
+  type        = list(string)
   description = "CIDR block for RDS security group"
 }
 
 variable "db_username" {
   description = "The username for the RDS database"
-  type    = string
+  type        = string
 }
 
 variable "set_secret_manager_password" {
   description = "To enable master user password or not"
-  type    = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "db_password" {
   description = "Password for RDS"
-  type    = string
+  type        = string
 }
 
 variable "db_instance_class" {
   description = "The RDS instance class"
-  type    = string
+  type        = string
 }
 
 variable "set_db_password" {
   description = "Condition to check for custom password"
-  type = string
+  type        = string
 }
 
 variable "db_storage_size" {

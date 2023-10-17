@@ -10,32 +10,32 @@ variable "region" {
 }
 
 variable "ami_id" {
-  type = string
+  type        = string
   description = "AMI ID for the Instance"
 }
 
 variable "instance_type" {
-  type = string
+  type        = string
   description = "EC2 instance type"
 }
 
 variable "instance_count" {
-  type    = number
+  type        = number
   description = "EC2 instance count for the Instance"
 }
 
 variable "key_name" {
-  type = string
+  type        = string
   description = "Key for the Instance"
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "VPC id for the Instance"
 }
 
 variable "subnet_ids" {
-  type    = list(string)
+  type        = list(string)
   description = "Subnet id for the Instance"
 }
 
@@ -65,26 +65,26 @@ variable "ingress_cidr_block" {
 }
 
 variable "ingress_sg_from_port" {
-  default     =[50000]
+  default     = [50000]
   type        = list(number)
   description = "List of starting ports for sg ingress rules"
 }
 
 variable "ingress_sg_to_port" {
-  default     =[50000]
+  default     = [50000]
   type        = list(number)
   description = "List of ending ports for sg ingress rules"
 }
 
 variable "ingress_sg_protocol" {
-  default     =["tcp"]
+  default     = ["tcp"]
   type        = list(string)
   description = "List of protocols for sg ingress rules"
 }
 
 variable "ingress_security_group_ids" {
   type        = list(string)
-  default     = [ "sg-0fe4363da3994c100" ]
+  default     = ["sg-0fe4363da3994c100"]
   description = "List of Security Group ids for sg ingress rules"
 }
 
@@ -109,26 +109,26 @@ variable "egress_cidr_block" {
 }
 
 variable "egress_sg_from_port" {
-  default     =[0]
+  default     = [0]
   type        = list(number)
   description = "List of starting ports for sg egress rules"
 }
 
 variable "egress_sg_to_port" {
-  default     =[0]
+  default     = [0]
   type        = list(number)
   description = "List of ending ports for sg egress rules"
 }
 
 variable "egress_sg_protocol" {
-  default     =["-1"]
+  default     = ["-1"]
   type        = list(any)
   description = "List of protocols for sg egress rules"
 }
 
 variable "egress_security_group_ids" {
   type        = list(string)
-  default     = [ "sg-0fe4363da3994c100" ]
+  default     = ["sg-0fe4363da3994c100"]
   description = "List of Security Group ids for sg egress rules "
 }
 

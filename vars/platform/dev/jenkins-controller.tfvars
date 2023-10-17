@@ -1,7 +1,7 @@
-region                      = "us-west-2"
+region = "us-west-2"
 
 #IAM Policy
-iam_policy_json_file        = "jenkins-controller.json"
+iam_policy_json_file = "jenkins-controller.json"
 
 #Instance Variables
 ami_id                      = "ami-09c28fb4a6cef7012"
@@ -16,25 +16,25 @@ attach_eip                  = true
 storage_size                = 10
 
 # CIDR Ingress Variables
-create_ingress_cidr         = true
-ingress_cidr_from_port      = [22, 8080]
-ingress_cidr_to_port        = [22, 8080]
-ingress_cidr_protocol       = ["tcp", "tcp"]
-ingress_cidr_block          = ["0.0.0.0/0", "0.0.0.0/0"]
+create_ingress_cidr    = true
+ingress_cidr_from_port = [22, 8080]
+ingress_cidr_to_port   = [22, 8080]
+ingress_cidr_protocol  = ["tcp", "tcp"]
+ingress_cidr_block     = ["0.0.0.0/0", "0.0.0.0/0"]
 
 # CIDR Egress Variables
-create_egress_cidr          = true
-egress_cidr_from_port       = [0]
-egress_cidr_to_port         = [0]
-egress_cidr_protocol        = ["-1"]
-egress_cidr_block           = ["0.0.0.0/0"]
+create_egress_cidr    = true
+egress_cidr_from_port = [0]
+egress_cidr_to_port   = [0]
+egress_cidr_protocol  = ["-1"]
+egress_cidr_block     = ["0.0.0.0/0"]
 
-create_ingress_sg           = false
-create_egress_sg            = false
+create_ingress_sg = false
+create_egress_sg  = false
 
 
 #tags
-owner                       = "techiescamp"
-environment                 = "dev"
-cost_center                 = "techiescamp-commerce"
-application                 = "jenkins-controller"
+owner       = "techiescamp"
+environment = "dev"
+cost_center = "techiescamp-commerce"
+application = "jenkins-controller"

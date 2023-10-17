@@ -54,7 +54,7 @@ resource "aws_autoscaling_group" "application_asg" {
       propagate_at_launch = true
     }
   }
-  
+
   instance_refresh {
     strategy = "Rolling"
     preferences {
