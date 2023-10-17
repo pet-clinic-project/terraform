@@ -2,6 +2,10 @@ provider "aws" {
   region = var.region
 }
 
+terraform {
+  backend "s3" {}
+}
+
 module "rds" {
   source                      = "../../modules/rds"
   region                      = var.region
