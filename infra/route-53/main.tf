@@ -12,4 +12,8 @@ module "route-53" {
   dns_record_ttl   = var.dns_record_ttl
   resource_names   = var.resource_names
   resource_ips     = var.resource_ips
-}  
+}
+
+terraform {
+  backend "s3" {}
+}

@@ -1,6 +1,6 @@
 resource "aws_iam_instance_profile" "instance_profile" {
   count = var.attach_instance_profile ? 1 : 0
-  name = "${var.environment}-${var.application}-instance_profile"
+  name  = "${var.environment}-${var.application}-instance_profile"
 
   role = var.iam_role
 }
@@ -15,9 +15,9 @@ resource "aws_instance" "ec2_instance" {
 
   associate_public_ip_address = var.associate_public_ip_address
 
-  vpc_security_group_ids      = var.security_group_ids
+  vpc_security_group_ids = var.security_group_ids
 
-  subnet_id                   = element(var.subnet_ids, count.index % length(var.subnet_ids))
+  subnet_id = element(var.subnet_ids, count.index % length(var.subnet_ids))
 
   root_block_device {
     volume_size = var.storage_size

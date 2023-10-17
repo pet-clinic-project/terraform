@@ -1,5 +1,5 @@
 provider "aws" {
-  region                      = var.region
+  region = var.region
 }
 
 module "consul" {
@@ -15,16 +15,16 @@ module "consul" {
   attach_eip                  = var.attach_eip
   storage_size                = var.storage_size
 
-  environment                 = var.environment
-  owner                       = var.owner
-  cost_center                 = var.cost_center
-  application                 = var.application
+  environment = var.environment
+  owner       = var.owner
+  cost_center = var.cost_center
+  application = var.application
 }
 
 module "security-group" {
-  source                     = "../../modules/security-group"
-  region                     = var.region
-  vpc_id                     = var.vpc_id
+  source = "../../modules/security-group"
+  region = var.region
+  vpc_id = var.vpc_id
 
   ingress_cidr_from_port     = var.ingress_cidr_from_port
   ingress_cidr_to_port       = var.ingress_cidr_to_port
@@ -47,9 +47,9 @@ module "security-group" {
   egress_security_group_ids  = var.egress_security_group_ids
   create_egress_sg           = var.create_egress_sg
 
-  environment                = var.environment
-  owner                      = var.owner
-  cost_center                = var.cost_center
-  application                = var.application
+  environment = var.environment
+  owner       = var.owner
+  cost_center = var.cost_center
+  application = var.application
 }
 

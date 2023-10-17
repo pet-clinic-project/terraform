@@ -5,7 +5,8 @@ provider "aws" {
 module "rds" {
   source                      = "../../modules/rds"
   region                      = var.region
-  subnet_ids = var.subnet_ids
+  vpc_id                      = var.vpc_id
+  subnet_ids                  = var.subnet_ids
   db_engine                   = var.db_engine
   db_storage_type             = var.db_storage_type
   db_username                 = var.db_username
@@ -29,4 +30,8 @@ module "rds" {
   cost_center                 = var.cost_center
   environment                 = var.environment
   application                 = var.application
+}
+
+terraform {
+  backend "s3" {}
 }

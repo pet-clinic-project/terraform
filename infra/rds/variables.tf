@@ -15,7 +15,7 @@ variable "region" {
 }
 
 variable "environment" {
-  type = string
+  type        = string
   description = "The environment name for the resources."
 }
 
@@ -27,6 +27,11 @@ variable "owner" {
 variable "application" {
   type        = string
   description = "Name of the application"
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "VPC Id to create the DB security group"
 }
 
 variable "cidr_block" {

@@ -1,4 +1,4 @@
-region                      = "us-west-2"
+region = "us-west-2"
 
 #Instance Variables
 ami_id                      = "ami-0bc78d813d6abbf85"
@@ -12,25 +12,25 @@ attach_eip                  = true
 storage_size                = 10
 
 # CIDR Ingress Variables
-create_ingress_cidr         = true
-ingress_cidr_from_port      = [22, 9090, 3000]
-ingress_cidr_to_port        = [22, 9090, 3000]
-ingress_cidr_protocol       = ["tcp", "tcp", "tcp"]
-ingress_cidr_block          = ["0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0"]
+create_ingress_cidr    = true
+ingress_cidr_from_port = [22, 9090, 3000]
+ingress_cidr_to_port   = [22, 9090, 3000]
+ingress_cidr_protocol  = ["tcp", "tcp", "tcp"]
+ingress_cidr_block     = ["0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0"]
 
 # CIDR Egress Variables
-create_egress_cidr          = true
-egress_cidr_from_port       = [0]
-egress_cidr_to_port         = [0]
-egress_cidr_protocol        = ["-1"]
-egress_cidr_block           = ["0.0.0.0/0"]
+create_egress_cidr    = true
+egress_cidr_from_port = [0]
+egress_cidr_to_port   = [0]
+egress_cidr_protocol  = ["-1"]
+egress_cidr_block     = ["0.0.0.0/0"]
 
-create_ingress_sg           = false
-create_egress_sg            = false
+create_ingress_sg = false
+create_egress_sg  = false
 
 
 #tags
-owner                       = "techiescamp"
-environment                 = "prod"
-cost_center                 = "techiescamp-commerce"
-application                 = "prometheus-grafana"
+owner       = "techiescamp"
+environment = "prod"
+cost_center = "techiescamp-commerce"
+application = "prometheus-grafana"

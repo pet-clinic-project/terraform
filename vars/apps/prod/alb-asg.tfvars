@@ -1,12 +1,12 @@
 region = "us-west-2"
 
 #IAM Policy
-iam_policy_json_file        = "alb-asg.json"
+iam_policy_json_file = "alb-asg.json"
 
 # alb
 internal          = false
 loadbalancer_type = "application"
-alb_subnets       = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
+alb_subnets       = ["subnet-0f799bf13fe34b2d1", "subnet-08de0ab5307a90bae", "subnet-0b5107f4694760f2c"]
 
 #alb-sg
 alb_ingress_cidr_from_port = [80, 443]
@@ -61,7 +61,7 @@ target_type              = "instance"
 load_balancing_algorithm = "round_robin"
 
 # health_check
-health_check_path                = "/login?from=%2F"
+health_check_path                = "/"
 health_check_port                = 8080
 health_check_protocol            = "HTTP"
 health_check_interval            = 30
@@ -93,20 +93,21 @@ dns_hosted_zone_id = "Z044775511DCQ7IHFO1WH"
 #ami_id        = "ami-06f8c05abb6b29ac0"
 instance_type = "t2.medium"
 key_name      = "techiescamp"
-vpc_id        = "vpc-0a5ca4a92c2e10163"
-asg_subnets   = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
+vpc_id        = "vpc-062e91b98392ca9a2"
+asg_subnets   = ["subnet-0f799bf13fe34b2d1", "subnet-08de0ab5307a90bae", "subnet-0b5107f4694760f2c"]
 public_access = true
 
-#user_data
+# user_data
 user_data = <<-EOF
-                                    #!/bin/bash
-                                    bash /home/ubuntu/start.sh
-                                   EOF
+#!/bin/bash
+/home/ubuntu/start.sh
+EOF
+
 
 #autoscaling_group
-max_size             = 2
-min_size             = 1
-desired_capacity     = 1
+max_size             = 5
+min_size             = 3
+desired_capacity     = 3
 propagate_at_launch  = true
 instance_warmup_time = 30
 target_value         = 50

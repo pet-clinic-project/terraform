@@ -2,7 +2,7 @@
 resource "aws_security_group" "rds_security_group" {
   name        = "${var.environment}-${var.application}-rds-sg"
   description = "Security group for RDS instance"
-  vpc_id      = "vpc-062e91b98392ca9a2"
+  vpc_id      = var.vpc_id
 
 
   ingress {
@@ -56,14 +56,14 @@ resource "aws_db_instance" "rds_instance" {
   apply_immediately           = var.apply_immediately
 
   tags = merge(
-  {
-    Name        = "${var.environment}-${var.application}-db",
-    Environment = var.environment,
-    Owner       = var.owner,
-    CostCenter  = var.cost_center,
-    Application = var.application,
-  },
-  var.tags
- )
+    {
+      Name        = "${var.environment}-${var.application}-db",
+      Environment = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = var.application,
+    },
+    var.tags
+  )
 }
 

@@ -65,23 +65,23 @@ module "alb" {
   health_check_healthy_threshold   = var.health_check_healthy_threshold
   health_check_unhealthy_threshold = var.health_check_unhealthy_threshold
 
-  http_listener_port               = var.http_listener_port
-  http_listener_protocol           = var.http_listener_protocol
-  http_listener_type               = var.http_listener_type
-  http_redirect_port               = var.http_redirect_port
-  http_redirect_protocol           = var.http_redirect_protocol
-  http_redirect_status_code        = var.http_redirect_status_code
+  http_listener_port        = var.http_listener_port
+  http_listener_protocol    = var.http_listener_protocol
+  http_listener_type        = var.http_listener_type
+  http_redirect_port        = var.http_redirect_port
+  http_redirect_protocol    = var.http_redirect_protocol
+  http_redirect_status_code = var.http_redirect_status_code
 
-  https_listener_port              = var.https_listener_port
-  https_listener_protocol          = var.https_listener_protocol
-  https_listener_ssl_policy        = var.https_listener_ssl_policy
-  https_listener_type              = var.https_listener_type
+  https_listener_port       = var.https_listener_port
+  https_listener_protocol   = var.https_listener_protocol
+  https_listener_ssl_policy = var.https_listener_ssl_policy
+  https_listener_type       = var.https_listener_type
 
-  dns_record_name                  = var.dns_record_name
-  dns_record_type                  = var.dns_record_type
-  dns_hosted_zone_id               = var.dns_hosted_zone_id
-  
-  acm_certificate_arn              = module.acm.cert_arn
+  dns_record_name    = var.dns_record_name
+  dns_record_type    = var.dns_record_type
+  dns_hosted_zone_id = var.dns_hosted_zone_id
+
+  acm_certificate_arn = module.acm.cert_arn
 
   owner              = var.owner
   environment        = var.environment
@@ -174,4 +174,8 @@ module "acm" {
   owner       = var.owner
   cost_center = var.cost_center
   application = var.application
-}  
+}
+
+terraform {
+  backend "s3" {}
+}
