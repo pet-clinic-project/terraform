@@ -1,6 +1,6 @@
 # Network Vars
 region              = "us-west-2"
-vpd_id              = "vpc-062e91b98392ca9a2"
+vpc_id              = "vpc-062e91b98392ca9a2"
 subnet_ids          = ["subnet-071ae7458dd1bc8b4", "subnet-090b5b06da6034d47", "subnet-078d6be8a0e8ec7fe"]
 multi_az            = false
 publicly_accessible = true
