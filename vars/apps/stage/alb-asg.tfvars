@@ -100,6 +100,7 @@ public_access = true
 # user_data
 user_data = <<-EOF
 #!/bin/bash
+sed -i 's/consul.devopsproject.dev/52.26.68.128/g' /etc/consul.d/config.hcl
 /home/ubuntu/start.sh
 EOF
 
@@ -107,7 +108,7 @@ EOF
 #autoscaling_group
 max_size             = 5
 min_size             = 3
-desired_capacity     = 3
+desired_capacity     = 2
 propagate_at_launch  = true
 instance_warmup_time = 30
 target_value         = 50
