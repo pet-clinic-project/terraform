@@ -107,7 +107,7 @@ EOF
 
 #autoscaling_group
 max_size             = 5
-min_size             = 3
+min_size             = 2
 desired_capacity     = 2
 propagate_at_launch  = true
 instance_warmup_time = 30
