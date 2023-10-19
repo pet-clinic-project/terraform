@@ -32,8 +32,8 @@ alb_egress_sg_protocol  = ["-1"]
 alb_create_egress_sg    = false
 
 # instance sg
-ingress_cidr_from_port = [22, 9090, 8300]
-ingress_cidr_to_port   = [22, 9090, 8500]
+ingress_cidr_from_port = [22, 9090, 8080]
+ingress_cidr_to_port   = [22, 9090, 8080]
 ingress_cidr_protocol  = ["tcp", "tcp", "tcp"]
 ingress_cidr_block     = ["0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0"]
 create_ingress_cidr    = true
