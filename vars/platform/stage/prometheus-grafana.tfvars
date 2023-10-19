@@ -16,6 +16,7 @@ include_user_data = true
 user_data         = <<-EOF
 #!/bin/bash
 sed -i 's/consul.devopsproject.dev/34.211.98.127:8500/g' /etc/prometheus/prometheus.yml
+systemctl restart prometheus.service
 EOF
 
 # CIDR Ingress Variables
