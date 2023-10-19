@@ -15,7 +15,7 @@ storage_size                = 10
 create_ingress_cidr    = true
 ingress_cidr_from_port = [22, 8300, 8500]
 ingress_cidr_to_port   = [22, 8500, 8500]
-ingress_cidr_protocol  = ["tcp", "udp", "udp"]
+ingress_cidr_protocol  = ["tcp", "udp", ""]
 ingress_cidr_block     = ["0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0"]
 
 # CIDR Egress Variables
