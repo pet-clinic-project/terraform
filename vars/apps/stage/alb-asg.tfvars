@@ -100,7 +100,7 @@ public_access = true
 # user_data
 user_data = <<-EOF
 #!/bin/bash
-sed -i 's/consul.devopsproject.dev/52.26.68.128/g' /etc/consul.d/config.hcl
+sed -i 's/consul.devopsproject.dev/10.0.11.43/g' /etc/consul.d/config.hcl
 /home/ubuntu/start.sh
 EOF
 

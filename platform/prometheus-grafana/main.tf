@@ -14,7 +14,9 @@ module "prometheus" {
   security_group_ids          = module.security-group.security_group_ids
   attach_eip                  = var.attach_eip
   storage_size                = var.storage_size
-
+  include_user_data           = var.include_user_data
+  user_data                   = var.user_data
+  
   environment = var.environment
   owner       = var.owner
   cost_center = var.cost_center

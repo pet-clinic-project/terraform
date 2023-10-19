@@ -23,6 +23,8 @@ resource "aws_instance" "ec2_instance" {
     volume_size = var.storage_size
   }
 
+  user_data = var.include_user_data ? base64encode(var.user_data) : null
+
   tags = merge(
     {
       Name        = "${var.environment}-${var.application}-instance"
