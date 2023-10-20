@@ -32,10 +32,10 @@ alb_egress_sg_protocol  = ["-1"]
 alb_create_egress_sg    = false
 
 # instance sg
-ingress_cidr_from_port = [22, 3389]
-ingress_cidr_to_port   = [22, 3389]
-ingress_cidr_protocol  = ["tcp", "tcp"]
-ingress_cidr_block     = ["0.0.0.0/0", "0.0.0.0/0"]
+ingress_cidr_from_port = [22, 9090, 8300]
+ingress_cidr_to_port   = [22, 9090, 8500]
+ingress_cidr_protocol  = ["tcp", "tcp", "tcp"]
+ingress_cidr_block     = ["0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0"]
 create_ingress_cidr    = true
 
 ingress_sg_from_port = [8080]
@@ -100,14 +100,15 @@ public_access = true
 # user_data
 user_data = <<-EOF
 #!/bin/bash
+sed -i 's/consul.devopsproject.dev/10.0.11.146/g' /etc/consul.d/config.hcl
 /home/ubuntu/start.sh
 EOF
 
 
 #autoscaling_group
 max_size             = 5
-min_size             = 3
-desired_capacity     = 3
+min_size             = 2
+desired_capacity     = 2
 propagate_at_launch  = true
 instance_warmup_time = 30
 target_value         = 50
