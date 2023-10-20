@@ -161,6 +161,11 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "parameter_store_secret_name" {
+  description = "Name of the parameter store secret"
+  type        = string
+}
+
 variable "type" {
   description = "Parameter store type"
   type        = string

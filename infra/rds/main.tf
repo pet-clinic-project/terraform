@@ -34,6 +34,7 @@ module "rds" {
   publicly_accessible         = var.publicly_accessible
   skip_final_snapshot         = var.skip_final_snapshot
   apply_immediately           = var.apply_immediately
+  parameter_store_secret_name = var.parameter_store_secret_name
   type                        = var.type
   overwrite                   = var.overwrite
   owner                       = var.owner
