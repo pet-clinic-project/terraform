@@ -1,12 +1,12 @@
 #vpc
-region                        = "us-west-2"
-vpc_cidr_block                = "10.0.0.0/16"
-instance_tenancy              = "default"
-enable_dns_support            = true
-enable_dns_hostnames          = true
+region               = "us-west-2"
+vpc_cidr_block       = "10.0.0.0/16"
+instance_tenancy     = "default"
+enable_dns_support   = true
+enable_dns_hostnames = true
 
 #route-table
-destination_cidr_block        = "0.0.0.0/0"
+destination_cidr_block = "0.0.0.0/0"
 
 #subnet
 map_public_ip_on_launch       = true
@@ -99,7 +99,7 @@ create_secrets_manager_endpoint = true
 create_cloudwatch_logs_endpoint = true
 
 #tags
-owner                         = "techiescamp"
-environment                   = "stage"
-cost_center                   = "techiescamp-commerce"
-application                   = "vpc"
+owner       = "techiescamp"
+environment = "stage"
+cost_center = "techiescamp-commerce"
+application = "vpc"

@@ -9,6 +9,13 @@ resource "aws_iam_role" "iam_role" {
         Principal = {
           Service = "ec2.amazonaws.com"
         }
+      },
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "iam.amazonaws.com"
+        }
       }
     ]
   })
@@ -25,11 +32,11 @@ resource "aws_iam_role" "iam_role" {
 }
 
 resource "aws_iam_policy" "iam_policy" {
-  name = "${var.environment}-${var.application}-iam-policy"
+  name   = "${var.environment}-${var.application}-iam-policy"
   policy = file("${path.module}../../../infra/iam-policies/${var.iam_policy_json_file}")
 }
 
 resource "aws_iam_role_policy_attachment" "iam_role_policy_attachment" {
-  role = aws_iam_role.iam_role.name
+  role       = aws_iam_role.iam_role.name
   policy_arn = aws_iam_policy.iam_policy.arn
 }

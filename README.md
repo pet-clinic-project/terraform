@@ -46,9 +46,9 @@ terraform destroy -var-file=../../vars/infra/dev/vpc.tfvars
 
 #### Jenkins Controller
 
-cd into the `infra/jenkins-controller` directory and run the following commands:
+cd into the `platform/jenkins-controller` directory and run the following commands:
 
-1. Init Terraform in the directory `infra/jenkins-controller`
+1. Init Terraform in the directory `platform/jenkins-controller`
 
 ```
 terraform init
@@ -56,24 +56,24 @@ terraform init
 2. To preview the changes in code
 
 ```
-terraform plan -var-file=../../vars/infra/dev/jenkins-controller.tfvars
+terraform plan -var-file=../../vars/platform/dev/jenkins-controller.tfvars
 ```
 3. To apply the changes
 
 ```
-terraform apply -var-file=../../vars/infra/dev/jenkins-controller.tfvars
+terraform apply -var-file=../../vars/platform/dev/jenkins-controller.tfvars
 ```
 4. To destroy the resources created using the code
 
 ```
-terraform destroy -var-file=../../vars/infra/dev/jenkins-controller.tfvars
+terraform destroy -var-file=../../vars/platform/dev/jenkins-controller.tfvars
 ```
 
 #### Jenkins Agent
 
-cd into the `infra/jenkins-agent` directory and run the following commands:
+cd into the `platform/jenkins-agent` directory and run the following commands:
 
-1. Init Terraform in the directory `infra/jenkins-agent`
+1. Init Terraform in the directory `platform/jenkins-agent`
 
 ```
 terraform init
@@ -81,49 +81,24 @@ terraform init
 2. To preview the changes in code
 
 ```
-terraform plan -var-file=../../vars/infra/dev/jenkins-agent.tfvars
+terraform plan -var-file=../../vars/platform/dev/jenkins-agent.tfvars
 ```
 3. To apply the changes
 
 ```
-terraform apply -var-file=../../vars/infra/dev/jenkins-agent.tfvars
+terraform apply -var-file=../../vars/platform/dev/jenkins-agent.tfvars
 ```
 4. To destroy the resources created using the code
 
 ```
-terraform destroy -var-file=../../vars/infra/dev/jenkins-agent.tfvars
+terraform destroy -var-file=../../vars/platform/dev/jenkins-agent.tfvars
 ```
 
 #### Nexus
 
-cd into the `infra/nexus` directory and run the following commands:
+cd into the `platform/nexus` directory and run the following commands:
 
-1. Init Terraform in the directory `infra/nexus'
-
-```
-terraform init
-```
-2. To preview the changes in code
-
-```
-terraform plan -var-file=../../vars/infra/dev/nexus.tfvars
-```
-3. To apply the changes
-
-```
-terraform apply -var-file=../../vars/infra/dev/nexus.tfvars
-```
-4. To destroy the resources created using the code
-
-```
-terraform destroy -var-file=../../vars/infra/dev/nexus.tfvars
-```
-
-#### Prometheus
-
-cd into the `infra/prometheus` directory and run the following commands:
-
-1. Init Terraform in the directory `infra/prometheus'
+1. Init Terraform in the directory `platform/nexus'
 
 ```
 terraform init
@@ -131,17 +106,42 @@ terraform init
 2. To preview the changes in code
 
 ```
-terraform plan -var-file=../../vars/infra/dev/prometheus.tfvars
+terraform plan -var-file=../../vars/platform/dev/nexus.tfvars
 ```
 3. To apply the changes
 
 ```
-terraform apply -var-file=../../vars/infra/dev/prometheus.tfvars
+terraform apply -var-file=../../vars/platform/dev/nexus.tfvars
 ```
 4. To destroy the resources created using the code
 
 ```
-terraform destroy -var-file=../../vars/infra/dev/prometheus.tfvars
+terraform destroy -var-file=../../vars/platform/dev/nexus.tfvars
+```
+
+#### Prometheus-grafana
+
+cd into the `platform/prometheus-grafana` directory and run the following commands:
+
+1. Init Terraform in the directory `platform/prometheus-grafana'
+
+```
+terraform init
+```
+2. To preview the changes in code
+
+```
+terraform plan -var-file=../../vars/platform/dev/prometheus-grafana.tfvars
+```
+3. To apply the changes
+
+```
+terraform apply -var-file=../../vars/platform/dev/prometheus-grafana.tfvars
+```
+4. To destroy the resources created using the code
+
+```
+terraform destroy -var-file=../../vars/platform/dev/prometheus-grafana.tfvars
 ```
 
 #### Backend
@@ -173,7 +173,7 @@ terraform destroy -var-file=../../vars/infra/dev/backend.tfvars
 
 cd into the `infra/ecr` directory and run the following commands:
 
-1. Init Terraform in the directory `infra/backend'
+1. Init Terraform in the directory `infra/ecr'
 
 ```
 terraform init
@@ -196,9 +196,9 @@ terraform destroy -var-file=../../vars/infra/dev/ecr.tfvars
 
 #### Consul
 
-cd into the `apps/consul` directory and run the following commands:
+cd into the `platform/consul` directory and run the following commands:
 
-1. Init Terraform in the directory `infra/nexus'
+1. Init Terraform in the directory `platform/consul'
 
 ```
 terraform init
@@ -206,15 +206,15 @@ terraform init
 2. To preview the changes in code
 
 ```
-terraform plan -var-file=../../vars/apps/dev/consul.tfvars
+terraform plan -var-file=../../vars/platform/dev/consul.tfvars
 ```
 3. To apply the changes
 
 ```
-terraform apply -var-file=../../vars/apps/dev/consul.tfvars
+terraform apply -var-file=../../vars/platform/dev/consul.tfvars
 ```
 4. To destroy the resources created using the code
 
 ```
-terraform destroy -var-file=../../vars/apps/dev/consul.tfvars
+terraform destroy -var-file=../../vars/platform/dev/consul.tfvars
 ```

@@ -89,3 +89,7 @@ module "vpc" {
   cost_center                        = var.cost_center
   application                        = var.application
 }
+
+terraform {
+  backend "s3" {}
+}

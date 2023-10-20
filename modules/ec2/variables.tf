@@ -85,3 +85,15 @@ variable "storage_size" {
   type        = number
   description = "Storage size of the instance"
 }
+
+variable "include_user_data" {
+  default     = false
+  type        = bool
+  description = "Attach user data or not"
+}
+
+variable "user_data" {
+  default = "#!/bin/bash"
+  type    = string
+  description = "Script to run during startup"
+}
