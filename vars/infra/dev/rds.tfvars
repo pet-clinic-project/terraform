@@ -36,7 +36,6 @@ apply_immediately        = true
 # Parameter store
 parameter_store_secret_name = "/dev/petclinic/rds_endpoint"
 type                        = "String"
-overwrite                   = true
 
 # Tag Vars
 owner       = "techiescamp"

@@ -1,3 +1,7 @@
+resource "aws_secretsmanager_secret" "rds_secret" {
+  name = "/stage/petclinic/db"
+}
+
 # Create a DB security group
 resource "aws_security_group" "rds_security_group" {
   name        = "${var.environment}-${var.application}-rds-sg"
@@ -67,11 +71,10 @@ resource "aws_db_instance" "rds_instance" {
 }
 
 resource "aws_ssm_parameter" "rds_endpoint" {
-  name        = "/dev/petclinic/rds_endpoint"
+  name        = var.parameter_store_secret_name
   description = "RDS endpoint for /dev environment"
   type        = var.type
   value       = aws_db_instance.rds_instance.endpoint
-  overwrite   = var.overwrite
 
   tags = merge(
   {

@@ -170,8 +170,3 @@ variable "type" {
   description = "Parameter store type"
   type        = string
 }
-
-variable "overwrite" {
-  description = "To confirm whether to overwrite or not"
-  type        = bool
-}
