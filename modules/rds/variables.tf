@@ -161,12 +161,12 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "type" {
-  description = "Parameter store type"
+variable "parameter_store_secret_name" {
+  description = "Name of the parameter store secret"
   type        = string
 }
 
-variable "overwrite" {
-  description = "To confirm whether to overwrite or not"
-  type        = bool
+variable "type" {
+  description = "Parameter store type"
+  type        = string
 }

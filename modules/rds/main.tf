@@ -67,11 +67,10 @@ resource "aws_db_instance" "rds_instance" {
 }
 
 resource "aws_ssm_parameter" "rds_endpoint" {
-  name        = "/dev/petclinic/rds_endpoint"
+  name        = var.parameter_store_secret_name
   description = "RDS endpoint for /dev environment"
   type        = var.type
   value       = aws_db_instance.rds_instance.endpoint
-  overwrite   = var.overwrite
 
   tags = merge(
   {

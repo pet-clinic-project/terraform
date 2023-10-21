@@ -34,8 +34,8 @@ skip_final_snapshot      = true
 apply_immediately        = true
 
 # Parameter store
-type      = "String"
-overwrite = true
+parameter_store_secret_name = "/dev/petclinic/rds_endpoint"
+type                        = "String"
 
 # Tag Vars
 owner       = "techiescamp"
