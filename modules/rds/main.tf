@@ -1,7 +1,3 @@
-resource "aws_secretsmanager_secret" "rds_secret" {
-  name = "/stage/petclinic/db"
-}
-
 # Create a DB security group
 resource "aws_security_group" "rds_security_group" {
   name        = "${var.environment}-${var.application}-rds-sg"
