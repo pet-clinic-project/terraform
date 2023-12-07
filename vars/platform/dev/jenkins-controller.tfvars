@@ -4,7 +4,7 @@ region = "us-west-2"
 iam_policy_json_file = "jenkins-controller.json"
 
 #Instance Variables
-ami_id                      = "ami-09c28fb4a6cef7012"
+ami_id                      = "ami-02af8cb0c7b62db20"
 instance_count              = 1
 instance_type               = "t2.medium"
 key_name                    = "techiescamp"
